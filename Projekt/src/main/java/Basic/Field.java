@@ -3,16 +3,21 @@ package Basic;
 public class Field {
     private int x;
     private int y;
-    private boolean dostroable;
+    private boolean destroable;
     private String image;
     private String id;
 
-    public Field(int x, int y, boolean dostroable, String image, String id) {
+    private String name;
+    public Field(int x, int y, boolean destroable, String image, String id, String name) {
         this.x = x;
         this.y = y;
-        this.dostroable = dostroable;
+        this.destroable = destroable;
         this.image = image;
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getX() {
@@ -23,8 +28,8 @@ public class Field {
         return y;
     }
 
-    public boolean isDostroable() {
-        return dostroable;
+    public boolean isDestroable() {
+        return destroable;
     }
 
     public String getImage() {
@@ -40,7 +45,7 @@ public class Field {
         return "Field{" +
                 "x=" + x +
                 ", y=" + y +
-                ", dostroable=" + dostroable +
+                ", dostroable=" + destroable +
                 ", image='" + image + '\'' +
                 ", id='" + id + '\'' +
                 '}';

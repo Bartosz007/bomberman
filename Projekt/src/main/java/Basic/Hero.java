@@ -1,18 +1,22 @@
 package Basic;
 
 public class Hero {
-    private int x;
-    private int y;
+    private int x,y;//dokładna pozycja na planszy w pikselach
+    private int field_x,field_y;//blok na którym postać się znajduje
+    private int speed,bombs;
     private String name;
-    private int speed;
-    private int bombs;
+    private String color;
 
-    public Hero(int x, int y, String name, int speed, int bombs) {
-        this.x = x;
+    public Hero(int field_x, int field_y, int speed, int bombs, String name,String color) {
+        this.x = x;//to będzie wyliczane na pdstawie field_x i field_y
         this.y = y;
         this.name = name;
         this.speed = speed;
         this.bombs = bombs;
+        this.color = color;
+        this.field_x = field_x;
+        this.field_y = field_y;
+
     }
 
     public int getX() {
@@ -54,5 +58,12 @@ public class Hero {
     public void setBombs(int bombs) {
         this.bombs = bombs;
     }
-    
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 }

@@ -38,6 +38,7 @@ public class GamePanel extends JPanel implements ActionListener {
         game_frame.setBackground(new Color(80,80,80));
         game_frame.setLayout(new BoxLayout(game_frame,BoxLayout.PAGE_AXIS));
         main_menu.add(game_frame);
+        //gdzieś tutaj będzie pobieranie planszy i przekazanie jej obiektu do rysowania
 
         game_frame.add(new DrawFrame(screen_size));
 
