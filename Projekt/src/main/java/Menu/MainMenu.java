@@ -5,12 +5,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainButtonMenu extends JPanel implements ActionListener { //klasa dziedzicząca po JPanel, implementująca funckje ActionListener(pojęcie intefejsu)
+public class MainMenu extends JPanel implements ActionListener { //klasa dziedzicząca po JPanel, implementująca funckje ActionListener(pojęcie intefejsu)
     private JButton start_game, menu, button3, button4, exit;
     private JFrame window;
 
 
-    public MainButtonMenu(JFrame window) {
+    public MainMenu(JFrame window) {
         this.window = window;
         //rozmiar okna
         Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();

@@ -1,7 +1,7 @@
 package Menu;
 
 import Frames.ScreenFrame;
-
+import Game.GamePanel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,13 +14,17 @@ public class MapMenu extends ScreenFrame implements ActionListener {
 
         JPanel icon_container = new JPanel();
         icon_container.setBackground(Color.BLUE);
+        JScrollPane map_chose_scroll = new JScrollPane(icon_container);
+        second_panel.add(map_chose_scroll);
 
-        JScrollPane map_chose = new JScrollPane(icon_container);
-        second_panel.add(map_chose);
-
-        for (int i=0;i<500;i++){//to zniknie na rzecz ikonek z mapkami i obsługą przycisków
-            icon_container.add(new JButton("bt"+i));
+      //  List<JButton> map_list = new ArrayList<>();
+        JButton bt;
+        for(int i=0;i<10;i++){
+            bt = new JButton("bt"+i);
+            bt.addActionListener(this);
+            icon_container.add(bt);
         }
+
 
         back.addActionListener(this); // obsługa przycisku cofania się
     }
@@ -28,9 +32,15 @@ public class MapMenu extends ScreenFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
+
         if(source == back){
             setVisible(false);
             previous_menu.setVisible(true);
+        }else{
+            String name = ((JButton)source).getText();
+            setVisible(false);
+            window.add(new GamePanel(window,this,name));
         }
+
     }
 }

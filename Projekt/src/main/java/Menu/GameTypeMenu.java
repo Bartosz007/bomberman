@@ -13,8 +13,6 @@ public class GameTypeMenu extends ScreenFrame implements ActionListener {
     public GameTypeMenu(JFrame window, JPanel previous_menu) {
         super(window, previous_menu);
 
-
-
         //przyciski wyboru typu gry
         single = new JButton("SP");
         lan = new JButton("LAN");

@@ -1,7 +1,11 @@
-import Menu.MainButtonMenu;
+import Game.GamePanel;
+import Menu.MainMenu;
 
 import javax.swing.*;
-public class StartGame extends JFrame{
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class StartGame extends JFrame {
 
     public StartGame(){
         super("Hello world");
@@ -13,7 +17,9 @@ public class StartGame extends JFrame{
       //  System.out.println(screen_size.width+" "+screen_size.height);
 
         //dodanie menu do okna gry
-        add(new MainButtonMenu(this));
-
+      //  add(new MainMenu(this));
+        add(new GamePanel(this,new MainMenu(this),"bt1"));//przycisk cofnij nie będzie działać
     }
+
+
 }
