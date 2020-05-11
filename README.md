@@ -1,1 +1,1 @@
-Tutaj będzie rozwijał się projekt
+Tutaj będzie rozwijał się projekt - gałąź Bartosza
