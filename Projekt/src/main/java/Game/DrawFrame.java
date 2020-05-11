@@ -48,6 +48,7 @@ public class DrawFrame extends JPanel implements KeyListener {
         Gson g = new Gson();//wczytanie stringa planszy i zrobienie z niego obiektu
         board  = g.fromJson(Data.fields_data,Field[][].class);
 
+        //test InteliJ
        // hero = new Hero()
 
         timer = new Timer(10, new ActionListener() {
