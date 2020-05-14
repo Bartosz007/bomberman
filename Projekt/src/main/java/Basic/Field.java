@@ -1,19 +1,26 @@
 package Basic;
 
+import java.awt.*;
+
 public class Field {
     private int x;
     private int y;
+
     private boolean destroable;
     private String image;
     private String id;
-
+    private Dimension block_position;
     private String name;
     public Field(int x, int y, boolean destroable, String image, String id, String name) {
-        this.x = x;
-        this.y = y;
+
         this.destroable = destroable;
         this.image = image;
         this.id = id;
+        this.block_position = new Dimension(x,y);
+    }
+    public void reposition(){
+        this.x = x*45;
+        this.y = y*45;
     }
 
     public String getName() {
@@ -45,9 +52,10 @@ public class Field {
         return "Field{" +
                 "x=" + x +
                 ", y=" + y +
-                ", dostroable=" + destroable +
+                ", destroable=" + destroable +
                 ", image='" + image + '\'' +
                 ", id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

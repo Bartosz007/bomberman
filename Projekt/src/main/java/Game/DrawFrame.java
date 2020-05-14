@@ -1,25 +1,22 @@
 package Game;
 
 import Basic.Field;
-import Basic.Hero;
+import Basic.GameObject;
+import Objects.Hero;
+import Objects.Bomb;
+import Settings.KEY;
 import com.google.gson.Gson;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Rectangle2D;
-import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 
 public class DrawFrame extends JPanel implements KeyListener {
@@ -29,16 +26,24 @@ public class DrawFrame extends JPanel implements KeyListener {
 
     private Timer timer;
     private Dimension size;
-    private boolean key_a,key_s,key_d,key_w;
-    private Field[][] board = new Field[15][13];
+    private Field[][] board;
     private int field_size = 45;//rozmiar pola w pikselach
 
-    private Hero hero;
+    private List<GameObject> game_objects;
 
+    private Hero player_one;
+    private Hero player_two;
+
+    private boolean[] player_one_moves;
+    private boolean[] player_two_moves;
+
+    private boolean is_player_two_here = false;//będzie to w konstruktorze
+
+    private Image background,barrel,wall;
     public DrawFrame(Dimension size) {
         this.size = size;
-        this.width = (int)(5*size.width/6 *(0.85));
-        this.heigh = (int)(size.height *(0.93));
+        this.width = (int)(5*size.width/6 *(0.80)); // to się zmieni
+        this.heigh = (int)(size.height *(0.80));
         setPreferredSize(new Dimension(5*size.width/6,size.height));
 
         requestFocusInWindow();
@@ -47,14 +52,32 @@ public class DrawFrame extends JPanel implements KeyListener {
 
         Gson g = new Gson();//wczytanie stringa planszy i zrobienie z niego obiektu
         board  = g.fromJson(Data.fields_data,Field[][].class);
+        for( Field []a : board){
+            for(Field b : a){
+                b.reposition();
+            }
+        }
+        game_objects = new ArrayList<>();//gracz, power-upy
 
-        //test InteliJ
-       // hero = new Hero()
+        player_one_moves = new boolean[]{false,false,false,false,false};
+        player_two_moves = new boolean[]{false,false,false,false,false};
 
-        timer = new Timer(10, new ActionListener() {
+
+        player_one = new Hero(new Dimension(1,1),"blue_bomberman", "/blue/niebieski.png",4,1,2);
+     //   player_one.setKeys(KEY.W,KEY.A,KEY.S,KEY.D,KEY.SPACE);
+
+      //  player_two = new Hero(new Dimension(10,1),"green_bomberman","/niebieski/niebieskiStoi.png",3,1,2);
+     //   keyStatus.putAll(player_two.setKeys(KEY.UP,KEY.LEFT,KEY.DOWN,KEY.RIGHT,KEY.ENTER));
+
+        game_objects.add(player_one);//polimorfizm
+
+   //     game_objects.add(player_two);//polimorfizm
+
+        load_images();
+        timer = new Timer(15, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                calculate_position();
+                calculate();
                 repaint();
             }
         });
@@ -77,18 +100,9 @@ public class DrawFrame extends JPanel implements KeyListener {
      //  g2d.setColor(Color.magenta);
       //  g2d.fillRect(x,y,30,30);
 
-
-        Image image = null;//rysowanie postaci
-        try {
-            image = ImageIO.read(new File("src/main/resources/niebieski/", "niebieskiStoi.png"));
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        for (GameObject obj: game_objects){
+            obj.draw(g2d);
         }
-
-      //  Ellipse2D.Double shape = new Ellipse2D.Double(x, y, 50, 50);
-
-        g2d.drawImage(image, x, y, null);
 
 
 
@@ -99,77 +113,124 @@ public class DrawFrame extends JPanel implements KeyListener {
     public void keyTyped(KeyEvent e) {}
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        if(e.getKeyChar()=='a'){
-            key_a = true;
+    public void keyPressed(KeyEvent e) { //miałem wersję zrobioną na pętlach, mapach i listach, ale wydajnościowo stało to słabo
+        int keycode = e.getKeyCode();
+        //0-up,1-left,2-down,3-right, 4-bomb
+        if(keycode==KEY.W){
+            player_one_moves[0] = true;
         }
-        if(e.getKeyChar()=='s'){
-            key_s = true;
+        if(keycode==KEY.A){
+            player_one_moves[1] = true;
         }
-        if(e.getKeyChar()=='d'){
-            key_d = true;
+        if(keycode==KEY.S){
+            player_one_moves[2] = true;
         }
-        if(e.getKeyChar()=='w'){
-            key_w = true;
+        if(keycode==KEY.D){
+            player_one_moves[3] = true;
         }
-       // System.out.println(e.getKeyCode());
+        if(keycode==KEY.SPACE){
+            player_one_moves[4] = true;
+            Bomb bomb = new Bomb(player_one.getBlock_position(),"bomb", "/background/skrzynia.png",player_one.getName());
+            game_objects.add(bomb);
+            System.out.println("bomba podłożona");
+        }
+
+        if(is_player_two_here){
+            if(keycode==KEY.UP){
+                player_two_moves[0] = true;
+            }
+            if(keycode==KEY.LEFT){
+                player_two_moves[1] = true;
+            }
+            if(keycode==KEY.DOWN){
+                player_two_moves[2] = true;
+            }
+            if(keycode==KEY.RIGHT){
+                player_two_moves[3] = true;
+            }
+            if(keycode==KEY.ENTER){
+                player_two_moves[4] = true;
+            }
+        }
+
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if(e.getKeyChar()=='a'){
-            key_a = false;
+        int keycode = e.getKeyCode();
+        if(keycode==KEY.W){
+            player_one_moves[0] = false;
         }
-        if(e.getKeyChar()=='s'){
-            key_s = false;
+        if(keycode==KEY.A){
+            player_one_moves[1] = false;
         }
-        if(e.getKeyChar()=='d'){
-            key_d = false;
+        if(keycode==KEY.S){
+            player_one_moves[2] = false;
         }
-        if(e.getKeyChar()=='w'){
-            key_w = false;
+        if(keycode==KEY.D){
+            player_one_moves[3] = false;
         }
-    }
+        if(keycode==KEY.SPACE){
+            player_one_moves[4] = false;
+        }
 
-    protected void calculate_position(){
-        if(key_a){
-            x=x-2;
-        }
-        if(key_s){
-            y=y+2;
-        }
-        if(key_d){
-            x = x+2;
-        }
-        if(key_w){
-            y=y-2;
-        }
-    }
-
-
-    private void draw_field(Graphics2D g2d){
-
-        try {//jedyen try catch bo chyba wystarczy
-            Image background = ImageIO.read(new File("src/main/resources/elementyTla/", "tlo2.png"));
-            g2d.drawImage(background,0,0,null);
-
-
-            Image barrel = ImageIO.read(new File("src/main/resources/elementyTla/", "skrzynia.png"));
-            Image wall = ImageIO.read(new File("src/main/resources/elementyTla/", "staly.png"));
-            for(int i=1;i<14;i++){//nie renderujemy stałych, nie zależnych od mapy- czyli tła planszy i ramy
-                for(int j =1;j<12;j++){
-                    if(board[i][j].getImage().equals("staly.png")){
-                        g2d.drawImage(wall, i*field_size, j*field_size, null);
-                    }
-                    else if(board[i][j].getImage().equals("skrzynia.png")){
-                        g2d.drawImage(barrel, i*field_size, j*field_size, null);
-                    }
-                }
+        if(is_player_two_here){
+            if(keycode==KEY.UP){
+                player_two_moves[0] = false;
             }
+            if(keycode==KEY.LEFT){
+                player_two_moves[1] = false;
+            }
+            if(keycode==KEY.DOWN){
+                player_two_moves[2] = false;
+            }
+            if(keycode==KEY.RIGHT){
+                player_two_moves[3] = false;
+            }
+            if(keycode==KEY.ENTER){
+                player_two_moves[4] = false;
+            }
+        }
 
+    }
+
+    protected void calculate(){
+        //pole ma strukturę siatki, otoczone jest blokami typu wall- czyli nieziszczalne i nieprzechodząca
+
+        player_one.calculate(player_one_moves,board);
+
+        if(is_player_two_here) {
+            player_two.calculate(player_two_moves,board);
+        }
+
+    }
+
+    private void load_images(){//ładujemy obrazki raz dla lepszej optymalizacji
+        try {
+            background = ImageIO.read(getClass().getResource("/background/tlo2.png"));
+            barrel = ImageIO.read(getClass().getResource("/background/skrzynia.png"));
+            wall = ImageIO.read(getClass().getResource("/background/staly.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
+                //Image barrel = ImageIO.read(new File("src/main/resources/skrzynia.png"));
+            //    Image wall = ImageIO.read(new File("src/main/resources/elementyTla/", "staly.png"));
+    }
+
+    private void draw_field(Graphics2D g2d){
+
+        g2d.drawImage(background,0,0,null);
+        for(int i=1;i<14;i++){//nie renderujemy stałych, nie zależnych od mapy- czyli tła planszy i ramy
+             for(int j =1;j<12;j++){
+                 if(board[i][j].getName().equals("wall")){
+                     g2d.drawImage(wall, i*field_size, j*field_size, null);
+                 }
+                 else if(board[i][j].getName().equals("barrel")){
+                     g2d.drawImage(barrel, i*field_size, j*field_size, null);
+                 }
+             }
+        }
+
     }
 
 }

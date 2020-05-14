@@ -1,9 +1,9 @@
-package Frames;
+package Basic;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class ScreenFrame extends JPanel { //screen przykładowy z domyślnymi wartosciami wszystkiego
+public abstract class ScreenFrame extends JPanel { //screen przykładowy z domyślnymi wartosciami wszystkiego
     protected JButton back;
     protected JFrame window;
     protected JPanel previous_menu;

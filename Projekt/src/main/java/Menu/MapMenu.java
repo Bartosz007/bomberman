@@ -1,6 +1,6 @@
 package Menu;
 
-import Frames.ScreenFrame;
+import Basic.ScreenFrame;
 import Game.GamePanel;
 import javax.swing.*;
 import java.awt.*;

@@ -144,10 +144,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id17\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
@@ -168,10 +168,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id20\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
@@ -184,10 +184,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id22\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
@@ -242,10 +242,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id29\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
@@ -290,10 +290,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id35\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
@@ -348,10 +348,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
+            "   \"destroable\": true,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id42\",\n" +
-            "   \"name\": \"wall\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
@@ -365,17 +365,17 @@ public class Data {
             "   \"x\": 3,\n" +
             "   \"y\": 5,\n" +
             "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id44\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 6,\n" +
             "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id45\",\n" +
-            "   \"name\": \"wall\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
@@ -396,10 +396,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id48\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
@@ -470,10 +470,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id57\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
@@ -502,10 +502,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id61\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
@@ -576,18 +576,18 @@ public class Data {
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id70\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id71\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
@@ -667,9 +667,9 @@ public class Data {
             "   \"x\": 6,\n" +
             "   \"y\": 3,\n" +
             "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id81\",\n" +
-            "   \"name\": \"wall\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
@@ -682,10 +682,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id83\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
@@ -698,10 +698,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id85\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
@@ -730,10 +730,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
+            "   \"destroable\": true,\n" +
+            "   \"image\": \"skrzynia.png\",\n" +
             "   \"id\": \"id89\",\n" +
-            "   \"name\": \"empty\"\n" +
+            "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
@@ -756,18 +756,18 @@ public class Data {
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id92\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id93\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
@@ -788,42 +788,42 @@ public class Data {
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id96\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id97\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id98\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id99\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id100\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
@@ -862,7 +862,7 @@ public class Data {
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": true,\n" +
+            "   \"destroable\": false,\n" +
             "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id105\",\n" +
             "   \"name\": \"empty\"\n" +
@@ -878,10 +878,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id107\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
@@ -942,10 +942,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
+            "   \"destroable\": true,\n" +
+            "   \"image\": \"skrzynia.png\",\n" +
             "   \"id\": \"id115\",\n" +
-            "   \"name\": \"empty\"\n" +
+            "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
@@ -976,26 +976,26 @@ public class Data {
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id119\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 3,\n" +
             "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id120\",\n" +
-            "   \"name\": \"wall\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id121\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
@@ -1008,34 +1008,34 @@ public class Data {
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id123\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id124\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id125\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id126\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
@@ -1090,10 +1090,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id133\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
@@ -1122,10 +1122,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id137\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
@@ -1138,10 +1138,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id139\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
@@ -1197,9 +1197,9 @@ public class Data {
             "   \"x\": 11,\n" +
             "   \"y\": 3,\n" +
             "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id146\",\n" +
-            "   \"name\": \"wall\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
@@ -1212,42 +1212,42 @@ public class Data {
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id148\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id149\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id150\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id151\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id152\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
@@ -1318,10 +1318,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id161\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
@@ -1334,10 +1334,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id163\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
@@ -1350,10 +1350,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id165\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
@@ -1366,10 +1366,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id167\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
@@ -1424,10 +1424,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id174\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
@@ -1440,10 +1440,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id176\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
@@ -1456,10 +1456,10 @@ public class Data {
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
+            "   \"destroable\": false,\n" +
+            "   \"image\": \"podloga.png\",\n" +
             "   \"id\": \"id178\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
