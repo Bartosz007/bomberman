@@ -130,7 +130,7 @@ public class DrawFrame extends JPanel implements KeyListener {
         }
         if(keycode==KEY.SPACE){
             player_one_moves[4] = true;
-            Bomb bomb = new Bomb(player_one.getBlock_position(),"bomb", "/background/skrzynia.png",player_one.getName());
+            Bomb bomb = new Bomb(player_one.getBlock_position(),"bomb", "/blue/dynamit.png",player_one.getName());
             game_objects.add(bomb);
             System.out.println("bomba podłożona");
         }
