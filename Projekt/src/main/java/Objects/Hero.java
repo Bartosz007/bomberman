@@ -19,8 +19,9 @@ public class Hero extends GameObject{
     private int bomb_power;
     private int up, left,  down,  right,  plant_bomb;
     private int vector_x = 0;//kierunek zwrotu postaci - w oparciu o to będą też animacje
-    private int vector_y = 1;
-
+    private int vector_y = 1; //zwroty zależne od x i y, operacje na 0,1,-1
+    //poszukaj funkcji/klasy dziedziczącej po obrazkach do cięcia obrazków
+    //utwórz mape plików/tablice, żeby wiedzieć które miejsca odpowiadają za ruch w poszczególnych kierunkach
     public Hero(Dimension block_position, String name, String url, int speed, int bombs,int bomb_power) {
         super(block_position, name, url);
         this.speed = speed;
@@ -36,6 +37,8 @@ public class Hero extends GameObject{
 
     @Override
     public void draw(Graphics2D g2d) {
+        //tutaj rysujemy, można utorzyć zmienną inicjującą czas, w oparciu o którą będzie sie generować animacja
+        //użyj wektor_x i wektor_y, możesz użyć z calculate
         g2d.drawImage(this.image, this.x, this.y-6, null);
     }
 

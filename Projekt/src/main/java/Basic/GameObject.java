@@ -5,13 +5,13 @@ import java.awt.*;
 import java.io.IOException;
 
 public abstract class GameObject  {
-    protected int x,y;
-    protected int width,heigh;
-    protected Dimension block_position;
-    protected String name;
-    protected String url;
-    protected Graphics2D g2d;
-    protected Image image;
+    protected int x,y; //pozycja dokładna którą ma postać
+    protected int width,heigh; //szerokość obrazka
+    protected Dimension block_position; //blok w którym się aktualnie zawiera
+    protected String name; //nazwa
+    protected String url; //link do obrazka
+    protected Graphics2D g2d; //to można usunać
+    protected Image image; //wygenerowany obrazek
 
     public GameObject(Dimension block_position, String name, String url) {
         this.block_position = block_position;
