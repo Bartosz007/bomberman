@@ -37,7 +37,13 @@ public class GamePanel extends JPanel implements ActionListener {
         game_frame.setMaximumSize(new Dimension(5*width/6,heigh));
         game_frame.setBackground(new Color(80,80,80));
         game_frame.setLayout(new BoxLayout(game_frame,BoxLayout.PAGE_AXIS));
-        main_menu.add(game_frame);
+        /*
+        wzorzec projektowy: Abstract Facade(str 38)
+        dodajemy do JPanela main_menu nową klasę(DrawFrame), która tworzy planszę gry, obługę klawiatury, rysowanie itp,
+        wszystko to dzieje się po za 'fasadą" i klasa main_manu nie ma pojęcia co dalej się dzieje, natomiast wie, co otrzymała
+
+         */
+        main_menu.add(game_frame); //dodajemy t
         //gdzieś tutaj będzie pobieranie planszy i przekazanie jej obiektu do rysowania
 
         game_frame.add(new DrawFrame(screen_size));

@@ -4,13 +4,12 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
 
-public abstract class GameObject  {
+public abstract class GameObject {
     protected int x,y;
     protected int width,heigh;
     protected Dimension block_position;
     protected String name;
     protected String url;
-    protected Graphics2D g2d;
     protected Image image;
 
     public GameObject(Dimension block_position, String name, String url) {
@@ -21,11 +20,12 @@ public abstract class GameObject  {
         this.x = block_position.width*45;
         this.y = block_position.height*45;
         try {
-            this.image = ImageIO.read(getClass().getResource(url));
+            this.image = ImageIO.read(getClass().getResource(this.url));
         } catch (IOException e) {
-            System.out.println("Nie wczytało pliku "+ url);
+            System.out.println("Nie wczytało pliku "+ this.url);
         }
     }
+
 
     public int getX() {
         return x;
@@ -67,6 +67,10 @@ public abstract class GameObject  {
         this.url = url;
     }
 
+    /*
+    wzorzec projektowy: Template Method(68 strona)
+    jest to to metoda, która jest tylko wzorcem(template), jest nadpisywana przez podklasy takie jak Hero, Bomb, czy z klasy Pakietu PowerUp
+     */
     public abstract void draw(Graphics2D g2d);
 
 

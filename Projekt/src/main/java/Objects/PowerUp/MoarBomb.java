@@ -13,4 +13,5 @@ public class MoarBomb extends GameObject {
     public void draw(Graphics2D g2d) {
 
     }
+
 }

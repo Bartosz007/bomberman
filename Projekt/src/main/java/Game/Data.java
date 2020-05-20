@@ -6,105 +6,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id0\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id1\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id2\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id3\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id4\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id5\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id6\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id7\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id8\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id9\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id10\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id11\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 0,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id12\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -112,105 +86,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id13\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id14\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id15\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id16\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id17\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id18\",\n" +
+            "   \"type\": 1,\n" +
             "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id19\",\n" +
-            "   \"name\": \"empty\"\n" +
+            "   \"type\": 1,\n" +
+            "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id20\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id21\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id22\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id23\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id24\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 1,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id25\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -218,105 +166,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id26\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id27\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id28\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id29\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id30\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id31\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id32\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id33\",\n" +
+            "   \"type\": 1,\n" +
             "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id34\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id35\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id36\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id37\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 2,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id38\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -324,105 +246,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id39\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id40\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id41\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id42\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id43\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id44\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id45\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id46\",\n" +
+            "   \"type\": 1,\n" +
             "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id47\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id48\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id49\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id50\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 3,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id51\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -430,105 +326,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id52\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id53\",\n" +
-            "   \"name\": \"empty\"\n" +
+            "   \"type\": 1,\n" +
+            "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id54\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id55\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id56\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id57\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id58\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id59\",\n" +
+            "   \"type\": 1,\n" +
             "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id60\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id61\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id62\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id63\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 4,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id64\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -536,105 +406,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id65\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id66\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id67\",\n" +
+            "   \"type\": 1,\n" +
             "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id68\",\n" +
+            "   \"type\": 1,\n" +
             "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id69\",\n" +
+            "   \"type\": 1,\n" +
             "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id70\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id71\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id72\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id73\",\n" +
+            "   \"type\": 1,\n" +
             "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id74\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id75\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id76\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 5,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id77\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -642,105 +486,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id78\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id79\",\n" +
-            "   \"name\": \"empty\"\n" +
+            "   \"type\": 1,\n" +
+            "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id80\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id81\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id82\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id83\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id84\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id85\",\n" +
-            "   \"name\": \"empty\"\n" +
+            "   \"type\": 1,\n" +
+            "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id86\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id87\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id88\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id89\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 6,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id90\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -748,105 +566,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id91\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id92\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id93\",\n" +
-            "   \"name\": \"empty\"\n" +
+            "   \"type\": 1,\n" +
+            "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id94\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id95\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id96\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id97\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id98\",\n" +
-            "   \"name\": \"empty\"\n" +
+            "   \"type\": 1,\n" +
+            "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id99\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id100\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id101\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id102\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 7,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id103\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -854,105 +646,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id104\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id105\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id106\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id107\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id108\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id109\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id110\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id111\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id112\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id113\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id114\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id115\",\n" +
-            "   \"name\": \"barrel\"\n" +
+            "   \"type\": 2,\n" +
+            "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 8,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id116\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -960,105 +726,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id117\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id118\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id119\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id120\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id121\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": true,\n" +
-            "   \"image\": \"skrzynia.png\",\n" +
-            "   \"id\": \"id122\",\n" +
+            "   \"type\": 1,\n" +
             "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id123\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id124\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id125\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id126\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id127\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id128\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 9,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id129\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -1066,105 +806,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id130\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id131\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id132\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id133\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id134\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id135\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id136\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id137\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id138\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id139\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id140\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id141\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 10,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id142\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -1172,105 +886,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id143\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id144\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id145\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id146\",\n" +
-            "   \"name\": \"empty\"\n" +
+            "   \"type\": 1,\n" +
+            "   \"name\": \"barrel\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id147\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id148\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id149\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id150\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id151\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id152\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id153\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id154\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 11,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id155\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -1278,105 +966,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id156\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id157\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id158\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id159\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id160\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id161\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id162\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id163\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id164\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id165\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id166\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id167\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 12,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id168\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -1384,105 +1046,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id169\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id170\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id171\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id172\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id173\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id174\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id175\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id176\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id177\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id178\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id179\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"podloga.png\",\n" +
-            "   \"id\": \"id180\",\n" +
+            "   \"type\": 2,\n" +
             "   \"name\": \"empty\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 13,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id181\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ],\n" +
@@ -1490,105 +1126,79 @@ public class Data {
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 0,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id182\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 1,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id183\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 2,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id184\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 3,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id185\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 4,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id186\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 5,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id187\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 6,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id188\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 7,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id189\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 8,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id190\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 9,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id191\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 10,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id192\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 11,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id193\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  },\n" +
             "  {\n" +
             "   \"x\": 14,\n" +
             "   \"y\": 12,\n" +
-            "   \"destroable\": false,\n" +
-            "   \"image\": \"staly.png\",\n" +
-            "   \"id\": \"id194\",\n" +
+            "   \"type\": 0,\n" +
             "   \"name\": \"wall\"\n" +
             "  }\n" +
             " ]\n" +

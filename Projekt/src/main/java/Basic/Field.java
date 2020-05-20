@@ -5,26 +5,26 @@ import java.awt.*;
 public class Field {
     private int x;
     private int y;
-
-    private boolean destroable;
-    private String image;
-    private String id;
+    private int type;
     private Dimension block_position;
     private String name;
-    public Field(int x, int y, boolean destroable, String image, String id, String name) {
 
-        this.destroable = destroable;
-        this.image = image;
-        this.id = id;
-        this.block_position = new Dimension(x,y);
+    public Field(int x, int y, int type, String name) {
+        this.type = type;
+        this.name = name;
+        this.block_position = new Dimension(x, y);
     }
-    public void reposition(){
+    public void positioning(){
         this.x = x*45;
         this.y = y*45;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getX() {
@@ -35,26 +35,19 @@ public class Field {
         return y;
     }
 
-    public boolean isDestroable() {
-        return destroable;
+    public int getType() {
+        return type;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public String getId() {
-        return id;
+    public void setType(int type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
         return "Field{" +
-                "x=" + x +
-                ", y=" + y +
-                ", destroable=" + destroable +
-                ", image='" + image + '\'' +
-                ", id='" + id + '\'' +
+                "type=" + type +
+                ", block_position=" + block_position +
                 ", name='" + name + '\'' +
                 '}';
     }

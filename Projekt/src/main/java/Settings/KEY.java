@@ -11,6 +11,4 @@ public class KEY {
     public static final int DOWN = 40;
     public static final int RIGHT = 39;
     public static final int ENTER = 10;
-
-
 }
