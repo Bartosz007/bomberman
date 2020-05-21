@@ -1,7 +1,12 @@
 package Objects.Bomb;
 
+import Basic.GameObject;
 import Game.PlayField;
+import Objects.Hero;
+import Objects.PowerUp.*;
+import Objects.State;
 import Settings.BLOCK_TYPE;
+import Settings.PROBABILITY;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -20,16 +25,16 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
     private Date date ;
     private Image image;// obrazek jest łądowany tutaj w celu ograniczenia liczby czytania pliku
     private List <DamageBlock> list;
-
-    public DamageArea(Dimension blockPosition, int power, String color, String owner, PlayField board) {
+    List<GameObject> powerUps;
+    public DamageArea(Dimension blockPosition, int power, String color, String owner, PlayField board, List<GameObject> powerUps) {
         this.blockPosition = blockPosition;
         this.power = power;
         this.color = color;
         this.board = board;
+        this.powerUps = powerUps;
         //TODO: Ola, to poniżej jest czas trwania bomby(ms), dodaj stałą w pliku SETTTINGS i 1000 na nią zamień
         this.death_time = new Date().getTime() + 1000;
         this.list = new ArrayList<>();
-
 
       //  System.out.println("/"+color+"/niebieski.png");
         //background = ImageIO.read(getClass().getResource("/background/tlo2.png"));
@@ -42,16 +47,7 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
         calculate_area();
     }
 
-    @Override
-    public boolean checkState() {
-        date = new Date();
-        if(this.death_time<date.getTime()){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
+
 
     public void draw(Graphics2D g2d){
         for(DamageBlock b : list){
@@ -68,19 +64,31 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
             list.add(new DamageBlock(new Dimension(x,y),image));
             board.getField(x,y).setName("empty");
             board.getField(x,y).setType(BLOCK_TYPE.FLOOR);
+
             Random generator = new Random();
             switch ( new Random().nextInt() % 5){
                 case 0:
+                    if(PROBABILITY.MOAR_BOMB >generator.nextFloat())
+                        this.powerUps.add(new MoarBomb(new Dimension(x,y)));
                     break;
                 case 1:
+                    if(PROBABILITY.MOAR_HAND >generator.nextFloat())
+                        this.powerUps.add(new MoarKick(new Dimension(x,y)));
                     break;
                 case 2:
+                    if(PROBABILITY.MOAR_KICK >generator.nextFloat())
+                        this.powerUps.add(new MoarHand(new Dimension(x,y)));
                     break;
                 case 3:
+                    if(PROBABILITY.MOAR_POWER >generator.nextFloat())
+                        this.powerUps.add(new MoarPower(new Dimension(x,y)));
                     break;
                 case 4:
+                    if(PROBABILITY.MOAR_SPEED >generator.nextFloat())
+                        this.powerUps.add(new MoarSpeed(new Dimension(x,y)));
                     break;
             }
+
 
         }
         else if(deep == 0){
@@ -112,6 +120,17 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
         reqursive_check(x,y,0,-1,power);//góra
         reqursive_check(x,y,0,1,power);//dół
 
+    }
+
+    @Override
+    public boolean checkState() {
+        date = new Date();
+        return this.death_time >= date.getTime();
+    }
+
+    @Override
+    public boolean checkState(Hero obj) {
+        return false;
     }
 
     public List<DamageBlock> getList() {

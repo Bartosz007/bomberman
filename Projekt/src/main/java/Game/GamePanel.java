@@ -15,10 +15,10 @@ public class GamePanel extends JPanel implements ActionListener {
         this.window = window;
         this.previous_menu = previous_menu;
         this.name = name;
-
         Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screen_size.width;
         int heigh = screen_size.height;
+
 
         JPanel main_menu = new JPanel();
         main_menu.setPreferredSize(new Dimension(width,heigh));
@@ -43,10 +43,11 @@ public class GamePanel extends JPanel implements ActionListener {
         wszystko to dzieje się po za 'fasadą" i klasa main_manu nie ma pojęcia co dalej się dzieje, natomiast wie, co otrzymała
 
          */
-        main_menu.add(game_frame); //dodajemy t
-        //gdzieś tutaj będzie pobieranie planszy i przekazanie jej obiektu do rysowania
+        main_menu.add(game_frame);
+
 
         game_frame.add(new DrawFrame(screen_size));
+
 
         back = new JButton("Cofnij się");
         back.addActionListener(this);

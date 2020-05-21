@@ -11,7 +11,7 @@ public class MapMenu extends ScreenFrame implements ActionListener {
 
     public MapMenu(JFrame window, JPanel previous_menu) {
         super(window, previous_menu);
-
+        setFocusable(true);
         JPanel icon_container = new JPanel();
         icon_container.setBackground(Color.BLUE);
         JScrollPane map_chose_scroll = new JScrollPane(icon_container);
@@ -22,6 +22,7 @@ public class MapMenu extends ScreenFrame implements ActionListener {
         for(int i=0;i<10;i++){
             bt = new JButton("bt"+i);
             bt.addActionListener(this);
+            bt.setFocusable(false);
             icon_container.add(bt);
         }
 

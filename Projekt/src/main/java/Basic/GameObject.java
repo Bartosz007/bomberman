@@ -1,10 +1,12 @@
 package Basic;
 
+import Objects.State;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
 
-public abstract class GameObject {
+public abstract class GameObject implements State {
     protected int x,y;
     protected int width,heigh;
     protected Dimension block_position;

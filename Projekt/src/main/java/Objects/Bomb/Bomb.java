@@ -2,16 +2,18 @@ package Objects.Bomb;
 
 import Basic.GameObject;
 import Objects.Hero;
+import Objects.State;
 
 import java.awt.*;
 import java.util.Date;
 
-public class Bomb extends GameObject implements State{
+public class Bomb extends GameObject implements State {
     private Hero owner;
     private int power;
     private long death_time;//czas życia bomby(po którym wybucha)
     private String color;
-    private Date date ;
+    private Date date;
+
     public Bomb(Dimension block_position,int power, String color, String url, Hero owner) {
         super(block_position, "bomb", url);
         this.owner = owner;
@@ -30,15 +32,15 @@ public class Bomb extends GameObject implements State{
     }
 
 
- //   @Override
+    @Override
     public boolean checkState() {
         date = new Date();
-        if(this.death_time<date.getTime()){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return this.death_time >= date.getTime();
+    }
+
+    @Override
+    public boolean checkState(Hero obj) {
+        return false;
     }
 
     public Hero getOwner() {
@@ -52,4 +54,18 @@ public class Bomb extends GameObject implements State{
     public int getPower() {
         return power;
     }
+
+    public void calculate(boolean code){
+
+        if( owner.isMove_bomb() && !owner.isBomb_in_hand()){
+            this.x = owner.getX();
+            this.y = owner.getY();
+            this.setBlock_position(owner.getBlock_position());
+            owner.setBomb_in_hand(true);
+        }else{
+            owner.setBomb_in_hand(false);
+        }
+
+    }
+
 }

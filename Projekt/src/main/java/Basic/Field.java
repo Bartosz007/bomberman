@@ -12,9 +12,9 @@ public class Field {
     public Field(int x, int y, int type, String name) {
         this.type = type;
         this.name = name;
-        this.block_position = new Dimension(x, y);
     }
     public void positioning(){
+        this.block_position = new Dimension(x, y);
         this.x = x*45;
         this.y = y*45;
     }
@@ -41,6 +41,10 @@ public class Field {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public Dimension getBlock_position() {
+        return block_position;
     }
 
     @Override
