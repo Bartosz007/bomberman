@@ -66,24 +66,20 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
             board.getField(x,y).setType(BLOCK_TYPE.FLOOR);
 
             Random generator = new Random();
-            switch ( new Random().nextInt() % 5){
+            switch ( new Random().nextInt() % 4){
                 case 0:
                     if(PROBABILITY.MOAR_BOMB >generator.nextFloat())
                         this.powerUps.add(new MoarBomb(new Dimension(x,y)));
                     break;
                 case 1:
-                    if(PROBABILITY.MOAR_HAND >generator.nextFloat())
-                        this.powerUps.add(new MoarKick(new Dimension(x,y)));
-                    break;
-                case 2:
                     if(PROBABILITY.MOAR_KICK >generator.nextFloat())
                         this.powerUps.add(new MoarHand(new Dimension(x,y)));
                     break;
-                case 3:
+                case 2:
                     if(PROBABILITY.MOAR_POWER >generator.nextFloat())
                         this.powerUps.add(new MoarPower(new Dimension(x,y)));
                     break;
-                case 4:
+                case 3:
                     if(PROBABILITY.MOAR_SPEED >generator.nextFloat())
                         this.powerUps.add(new MoarSpeed(new Dimension(x,y)));
                     break;

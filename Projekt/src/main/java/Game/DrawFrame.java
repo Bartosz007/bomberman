@@ -9,6 +9,7 @@ import Objects.PowerUp.MoarBomb;
 import Objects.PowerUp.MoarHand;
 import Objects.PowerUp.MoarPower;
 import Objects.PowerUp.MoarSpeed;
+import Settings.BLOCK_TYPE;
 import Settings.KEY;
 import com.google.gson.Gson;
 
@@ -81,14 +82,15 @@ public class DrawFrame extends JPanel implements KeyListener {
 
 
         player_one = new Hero(new Dimension(1,1),"blue_bomberman", "/blue/niebieski.png");
-        player_one.setPlayer(board.getBoard(),bombList,4,3,2,2);
-     //   player_one.setKeys(KEY.W,KEY.A,KEY.S,KEY.D,KEY.SPACE);
+        player_one.setPlayer(board.getBoard(),bombList,5,3,2,2);
 
-      //  player_two = new Hero(new Dimension(10,1),"green_bomberman","/blue/niebieski.png",3,1,2,2);
-     //   keyStatus.putAll(player_two.setKeys(KEY.UP,KEY.LEFT,KEY.DOWN,KEY.RIGHT,KEY.ENTER));
+
+       // player_two = new Hero(new Dimension(10,1),"green_bomberman","/blue/niebieski.png");
+       // player_two.setPlayer(board.getBoard(),bombList,4,3,2,1);
+
         powerUps.add(new MoarHand(new Dimension(3,1)));
         game_heros.add(player_one);
-      //  game_heros.add(player_two);
+       // game_heros.add(player_two);
 
 
         timer = new Timer(15, e -> {
@@ -156,8 +158,10 @@ public class DrawFrame extends JPanel implements KeyListener {
             if (keycode == KEY.SPACE && player_one.getBombs() > 0) {
                 for (Bomb b : bombList) {
                     if (player_one.getBlock_position().equals(b.getBlock_position())) {  //jeśli w tym bloku jest już bomba to nie można postawić kolejnej
-
-                        player_one_moves[4] = true;//umożliwia to przenoszenie bomby
+                        if(player_one.isMove_bomb() && !player_one.isBomb_in_hand()){
+                            player_one.setPicked_bomb(b);
+                            player_one.setBomb_in_hand(true);
+                        }
                         return;
                     }
 
@@ -167,7 +171,6 @@ public class DrawFrame extends JPanel implements KeyListener {
                 Bomb bomb = new Bomb(player_one.getBlock_position(), player_one.getBomb_power(), "blue", "/blue/dynamit.png", player_one);
                 //    game_objects.add(bomb);
                 bombList.add(bomb);
-
 
             }
         }
@@ -185,20 +188,20 @@ public class DrawFrame extends JPanel implements KeyListener {
             if(keycode==KEY.RIGHT){
                 player_two_moves[3] = true;
             }
-            if(keycode==KEY.ENTER){
-                Dimension player_pos = player_two.getBlock_position();
+            if(keycode==KEY.ENTER && player_two.getBombs() > 0){
                 for(Bomb b: bombList){
-                    if(player_pos.equals(b.getBlock_position())) { //jeśli w tym bloku jest już bomba to nie można postawić kolejnej
-                        System.out.println("bobma tu jest");
-                        player_two_moves[4] = true;
-
+                    if(player_two.getBlock_position().equals(b.getBlock_position())) { //jeśli w tym bloku jest już bomba to nie można postawić kolejnej
+                        if(player_two.isMove_bomb() && !player_two.isBomb_in_hand()){
+                            player_two.setPicked_bomb(b);
+                            player_two.setBomb_in_hand(true);
+                        }
                         return;
                     }
                 }
                 player_two.setBombs(player_two.getBombs()-1);
-                //    player_one_moves[4] = true;
-                Bomb bomb = new Bomb(player_pos, player_two.getBomb_power(),"blue","/blue/dynamit.png",player_two);
-                //    game_objects.add(bomb);
+                System.out.println(player_two.getBombs());
+                Bomb bomb = new Bomb(player_two.getBlock_position(), player_two.getBomb_power(),"blue","/blue/dynamit.png",player_two);
+
                 bombList.add(bomb);
                 System.out.println("bomba podłożona");
             }
@@ -223,7 +226,9 @@ public class DrawFrame extends JPanel implements KeyListener {
                 player_one_moves[3] = false;
             }
             if (keycode == KEY.SPACE) {
-                player_one_moves[4] = false;
+                if(player_one.isBomb_in_hand()){
+                    throw_bomb(player_one);
+                }
             }
         }
 
@@ -241,7 +246,9 @@ public class DrawFrame extends JPanel implements KeyListener {
                 player_two_moves[3] = false;
             }
             if(keycode==KEY.ENTER){
-                player_two_moves[4] = false;
+                if(player_two.isBomb_in_hand()){
+                    throw_bomb(player_two);
+                }
             }
         }
 
@@ -280,17 +287,11 @@ public class DrawFrame extends JPanel implements KeyListener {
 
                 return;
             }
-            for(Hero obj:game_heros){ // przenoszenie bomb
-
+            if(bomb.isIt_flies()){
+                bomb.fly();
             }
         }
 
-        for(Bomb b: bombList){
-          //  for(Hero obj:game_heros){
-          //      if(b.getBlock_position().equals(obj.getBlock_position()))
-           // }
-           // b.calculate( player_one_moves[4]);
-        }
 
         //obliczanie obszaru wybuchu
         a = 0;
@@ -301,6 +302,7 @@ public class DrawFrame extends JPanel implements KeyListener {
                 a++;
             }
         }
+
 
         //sprawdzanie obrażeń
         Hero hero;
@@ -313,7 +315,6 @@ public class DrawFrame extends JPanel implements KeyListener {
                 a++;
             }
         }
-
 
 
         //wyłapywanie power-upów
@@ -331,4 +332,27 @@ public class DrawFrame extends JPanel implements KeyListener {
 
     }
 
+    private void throw_bomb(Hero hero){
+        Bomb b = hero.getPicked_bomb();
+        hero.setPicked_bomb(null);
+        hero.setBomb_in_hand(false);
+        int x = b.getBlock_position().width;
+        int y = b.getBlock_position().height;
+        int vector_x = hero.getVector_x();
+        int vector_y = hero.getVector_y();
+        int d = 0;
+
+        Field field = board.getField(x,y);
+
+        while(d < 3 ){
+
+            if(board.getField(x ,y).getType() == BLOCK_TYPE.FLOOR){
+                field = board.getField(x ,y );
+                x = x + vector_x;
+                y = y + vector_y;
+            }
+            d++;
+        }
+        b.let_fly(true,field.getX(),field.getY());
+    }
 }

@@ -37,6 +37,7 @@ public abstract class ScreenFrame extends JPanel { //screen przyk≈Çadowy z domy≈
         thrid_panel = new JPanel();
         thrid_panel.setPreferredSize(new Dimension(screen_size.width,screen_size.height/4));
         thrid_panel.setMaximumSize(new Dimension(screen_size.width,screen_size.height/4));
+        second_panel.setLayout(new BoxLayout(second_panel,BoxLayout.LINE_AXIS));
         thrid_panel.setBackground(new Color(120,120,120));
         main_menu.add(thrid_panel);
 

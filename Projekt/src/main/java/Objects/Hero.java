@@ -6,12 +6,8 @@ import Objects.Bomb.Bomb;
 import Objects.Bomb.DamageArea;
 import Objects.Bomb.DamageBlock;
 import Settings.BLOCK_TYPE;
-import Settings.KEY;
 
-import javax.swing.plaf.DimensionUIResource;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.List;
 import java.util.Date;
 public class Hero extends GameObject{
@@ -22,10 +18,12 @@ public class Hero extends GameObject{
     private int vector_y = 1;
     private int lives;
     private long cooldown;
-    private boolean kick_bomb,move_bomb;
+    private boolean move_bomb;
     private boolean bomb_in_hand;
+    private Bomb picked_bomb;
     private Field[][] board;
     private List<Bomb> bombList;
+
     public Hero(Dimension block_position, String name, String url) {
         super(block_position, name, url);
 
@@ -45,7 +43,6 @@ public class Hero extends GameObject{
         this.board = board;
         this.bombList = bombList;
         this.move_bomb = false;
-        this.kick_bomb = false;
         this.bomb_in_hand = false;
     }
 
@@ -59,35 +56,57 @@ public class Hero extends GameObject{
 
     }
 
+    @Override
+    public boolean checkState() {
+        if(this.lives==0)
+            return false;
+        else
+            return true;
+    }
+
+    @Override
+    public boolean checkState(Hero obj) {
+        return false;
+    }
+
     public void calculate(boolean[] codes) {//system poruszania się i kolizjii
 
         if(codes[0]){ //góra
             vector_x = 0;
             vector_y = -1;
-            colisions();
+            collisions();
         }
         if(codes[1]){//lewo
             vector_x = -1;
             vector_y = 0;
-            colisions();
+            collisions();
         }
         if(codes[2]){//dół
             vector_x = 0;
             vector_y = 1;
-            colisions();
+            collisions();
              //   this.y += this.speed;
         }
         if(codes[3]){//prawo
             vector_x = 1;
             vector_y = 0;
-            colisions();
+            collisions();
         }
 
         this.setBlock_position(new Dimension((int)((this.x+this.width/2)/45),(int)(this.y+this.heigh/2)/45));
 
+        if(this.bomb_in_hand){
+
+            this.picked_bomb.setX(this.x);
+            this.picked_bomb.setY(this.y);
+
+            this.picked_bomb.setBlock_position(this.block_position);
+
+        }
+
     }
 
-    public void colisions(){
+    public void collisions(){
         int x = this.getBlock_position().width;
         int y = this.getBlock_position().height;
         int im_speed = this.speed/3;//TODO - Bartosz - trzeba poprawić bo postacie przy większej prędkości dostają świra
@@ -112,6 +131,9 @@ public class Hero extends GameObject{
                             }
                         }
                         this.x += this.speed;
+                        if(Math.abs(this.x-direct[1].getBlock_position().width)<2){
+                            this.x = direct[1].getBlock_position().width;
+                        }
                     }
                 }
             }else {//idę w lewo
@@ -132,6 +154,9 @@ public class Hero extends GameObject{
                             }
                         }
                         this.x -= this.speed;
+                        if(Math.abs(this.x-direct[1].getBlock_position().width)<2){
+                            this.x = direct[1].getBlock_position().width;
+                        }
                     }
                 }
             }
@@ -157,6 +182,9 @@ public class Hero extends GameObject{
                             }
                         }
                         this.y += this.speed;
+                        if(Math.abs(this.y-direct[1].getBlock_position().height)<2){
+                            this.y = direct[1].getBlock_position().height;
+                        }
                     }
                 }
             }else {//idę w górę
@@ -175,6 +203,9 @@ public class Hero extends GameObject{
                             }
                         }
                         this.y -= this.speed;
+                        if(Math.abs(this.y-direct[1].getBlock_position().height)<2){
+                            this.y = direct[1].getBlock_position().height;
+                        }
                     }
                 }
 
@@ -199,13 +230,6 @@ public class Hero extends GameObject{
         }
     }
 
-    public int getBomb_power() {
-        return bomb_power;
-    }
-
-    public void setBomb_power(int bomb_power) {
-        this.bomb_power = bomb_power;
-    }
 
     public int getBombs() {
         return bombs;
@@ -215,6 +239,16 @@ public class Hero extends GameObject{
         this.bombs = bombs;
     }
 
+
+    public int getBomb_power() {
+        return bomb_power;
+    }
+
+    public void setBomb_power(int bomb_power) {
+        this.bomb_power = bomb_power;
+    }
+
+
     public int getSpeed() {
         return speed;
     }
@@ -223,9 +257,15 @@ public class Hero extends GameObject{
         this.speed = speed;
     }
 
-    public void setKick_bomb(boolean kick_bomb) {
-        this.kick_bomb = kick_bomb;
+
+    public Bomb getPicked_bomb() {
+        return picked_bomb;
     }
+
+    public void setPicked_bomb(Bomb picked_bomb) {
+        this.picked_bomb = picked_bomb;
+    }
+
 
     public void setMove_bomb(boolean move_bomb) {
         this.move_bomb = move_bomb;
@@ -235,25 +275,22 @@ public class Hero extends GameObject{
         return move_bomb;
     }
 
-    public boolean isBomb_in_hand() {
-        return bomb_in_hand;
-    }
 
     public void setBomb_in_hand(boolean bomb_in_hand) {
         this.bomb_in_hand = bomb_in_hand;
     }
 
-    @Override
-    public boolean checkState() {
-        if(this.lives==0)
-            return false;
-        else
-            return true;
+    public boolean isBomb_in_hand() {
+        return bomb_in_hand;
     }
 
-    @Override
-    public boolean checkState(Hero obj) {
-        return false;
+
+    public int getVector_x() {
+        return vector_x;
+    }
+
+    public int getVector_y() {
+        return vector_y;
     }
 
 }

@@ -13,7 +13,10 @@ public class Bomb extends GameObject implements State {
     private long death_time;//czas życia bomby(po którym wybucha)
     private String color;
     private Date date;
+    private int destination_x;
+    private int destination_y;
 
+    private boolean it_flies;
     public Bomb(Dimension block_position,int power, String color, String url, Hero owner) {
         super(block_position, "bomb", url);
         this.owner = owner;
@@ -21,6 +24,8 @@ public class Bomb extends GameObject implements State {
         //TODO: Ola, to poniżej jest czas(ms) po którym wybuchnie bomba, dodaj stałą w pliku SETTTINGS i 2500 na nią zamień
         this.death_time =new Date().getTime() + 2500;
         this.color = color;
+        this.it_flies = false;
+
     }
 
     @Override
@@ -55,17 +60,57 @@ public class Bomb extends GameObject implements State {
         return power;
     }
 
-    public void calculate(boolean code){
+    public boolean isIt_flies() {
+        return it_flies;
+    }
 
-        if( owner.isMove_bomb() && !owner.isBomb_in_hand()){
-            this.x = owner.getX();
-            this.y = owner.getY();
-            this.setBlock_position(owner.getBlock_position());
-            owner.setBomb_in_hand(true);
-        }else{
-            owner.setBomb_in_hand(false);
+    public void let_fly(boolean it_flies, int destination_x, int destination_y) {
+        this.it_flies = it_flies;
+        this.destination_x = destination_x;
+        this.destination_y = destination_y;
+
+    }
+
+    public void fly(){
+        int speeed = 3; //// TODO; Ola - proszę dodać speed(prędkość bomb) do stałych
+       // int count = 0;
+        if(this.destination_x < this.x){
+            this.x = this.x - speeed;
+            if(Math.abs(this.destination_x - this.x)<2){
+                this.x = this.destination_x;
+                this.it_flies = false;
+                return;
+            }
+        }
+        else if (this.destination_x > this.x){
+            this.x = this.x + speeed;
+            if(Math.abs(this.destination_x - this.x)<2){
+                this.x = this.destination_x;
+                this.it_flies = false;
+                return;
+            }
         }
 
+        if(this.destination_y < this.y){
+            this.y = this.y - speeed;
+            if(Math.abs(this.destination_y - this.y)<2){
+                this.y = this.destination_y;
+                this.it_flies = false;
+                return;
+            }
+        }
+        else if (this.destination_y > this.y){
+            this.y = this.y + speeed;
+            if(Math.abs(this.destination_y - this.y)<2){
+                this.y = this.destination_y;
+                this.it_flies = false;
+                return;
+            }
+        }
+        //liczymy blok względem srodka bloku a nie lewego górnego rogu
+        this.block_position = new Dimension((this.x+22)/45,(this.y+22)/45);
+        //TODO - Ola prosze zamienić w całym projekcie zmienne 45 i 22 na stałe (są to standardowe rozmiary bloku)
+        //Ctrl+Shif+F
     }
 
 }
