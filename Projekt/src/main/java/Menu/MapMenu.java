@@ -1,5 +1,6 @@
 package Menu;
 
+import Additions.SoundPlayer;
 import Basic.ScreenFrame;
 import Game.GamePanel;
 import javax.swing.*;
@@ -9,8 +10,8 @@ import java.awt.event.ActionListener;
 
 public class MapMenu extends ScreenFrame implements ActionListener {
 
-    public MapMenu(JFrame window, JPanel previous_menu) {
-        super(window, previous_menu);
+    public MapMenu(JFrame window, JPanel previous_menu, SoundPlayer menu_music) {
+        super(window, previous_menu, menu_music);
         setFocusable(true);
         JPanel icon_container = new JPanel();
         icon_container.setBackground(Color.BLUE);
@@ -32,6 +33,9 @@ public class MapMenu extends ScreenFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        SoundPlayer menuButton = new SoundPlayer("sounds/click_sound.wav");
+        menuButton.playOnce();
+
         Object source = e.getSource();
 
         if(source == back){
@@ -41,6 +45,7 @@ public class MapMenu extends ScreenFrame implements ActionListener {
             String name = ((JButton)source).getText();
             setVisible(false);
             window.add(new GamePanel(window,this,name));
+            menu_music.stop();
         }
 
     }

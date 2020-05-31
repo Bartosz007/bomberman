@@ -25,6 +25,7 @@ public class MoarBomb extends GameObject {
     public boolean checkState(Hero obj) {
         if(obj.getBlock_position().equals(block_position)){
             obj.setBombs(obj.getBombs()+1);
+            obj.setScore(obj.getScore()+100); //TODO Ola 100 to punktacja za podniesione power-upy
             return false;
         }
         else {

@@ -24,6 +24,7 @@ public class MoarHand extends GameObject {
     public boolean checkState(Hero obj) {
         if(obj.getBlock_position().equals(block_position)){
             obj.setMove_bomb(true);
+            obj.setScore(obj.getScore()+100); //TODO Ola - kolejny powerup
             return false;
         }
         else {

@@ -23,6 +23,7 @@ public class Hero extends GameObject{
     private Bomb picked_bomb;
     private Field[][] board;
     private List<Bomb> bombList;
+    private int score = 0;
 
     public Hero(Dimension block_position, String name, String url) {
         super(block_position, name, url);
@@ -212,7 +213,7 @@ public class Hero extends GameObject{
             }
 
         }
-     //   System.out.println("player: "+this.x+" x "+this.y);
+
     }
 
     public void checkDamage(List<DamageArea> damageAreas){
@@ -222,6 +223,13 @@ public class Hero extends GameObject{
                         this.block_position.width == db.getBlockPosition().width &&
                         this.block_position.height == db.getBlockPosition().height){
                     this.lives--;
+                    System.out.println(this.name);
+                    Hero dmown = dm.getOwner();
+                    if(this!= dmown)
+                        dmown.setScore(dmown.getScore()+500);
+                    else
+                        dmown.setScore(dmown.getScore()-500);
+
                     //po trafieniu bombą w gracza, staje się on tymczasowo nieśmiertelny
                     cooldown = new Date().getTime()+3000;//TODO Ola - prosze do pliku SETTINGS dopisać zmienną od cooldownu(to 3000)
                     System.out.println("jeb" + this.name);
@@ -264,6 +272,15 @@ public class Hero extends GameObject{
 
     public void setPicked_bomb(Bomb picked_bomb) {
         this.picked_bomb = picked_bomb;
+    }
+
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
 

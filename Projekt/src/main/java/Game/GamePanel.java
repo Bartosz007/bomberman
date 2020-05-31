@@ -1,5 +1,7 @@
 package Game;
 
+import Additions.SoundPlayer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,11 +12,11 @@ public class GamePanel extends JPanel implements ActionListener {
     private JPanel previous_menu;
     private String name;
     private JButton back;
-
     public GamePanel(JFrame window, JPanel previous_menu, String name)  {
         this.window = window;
         this.previous_menu = previous_menu;
         this.name = name;
+
         Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screen_size.width;
         int heigh = screen_size.height;
@@ -30,6 +32,7 @@ public class GamePanel extends JPanel implements ActionListener {
         left_menu.setPreferredSize(new Dimension(width/3,heigh));
         left_menu.setMaximumSize(new Dimension(width/3,heigh));
         left_menu.setBackground(new Color(120,120,120));
+        left_menu.setLayout(new BoxLayout(left_menu,BoxLayout.PAGE_AXIS));
         main_menu.add(left_menu);
 
         JPanel game_frame = new JPanel();
@@ -43,16 +46,31 @@ public class GamePanel extends JPanel implements ActionListener {
         wszystko to dzieje się po za 'fasadą" i klasa main_manu nie ma pojęcia co dalej się dzieje, natomiast wie, co otrzymała
 
          */
+
+
+
+        JPanel scores_menu = new JPanel();
+        scores_menu.setPreferredSize(new Dimension(width,7*heigh/8));
+        scores_menu.setMaximumSize(new Dimension(width,7*heigh/8));
+        scores_menu.setBackground(new Color(80,80,80));
+        scores_menu.setLayout(new BoxLayout(scores_menu,BoxLayout.PAGE_AXIS));
+        left_menu.add(scores_menu);
+
+        JPanel back_menu = new JPanel();
+        back_menu.setPreferredSize(new Dimension(width,heigh/8));
+        back_menu.setMaximumSize(new Dimension(width,heigh/8));
+        back_menu.setBackground(new Color(80,80,80));
+        back_menu.setLayout(new BoxLayout(back_menu,BoxLayout.PAGE_AXIS));
+        left_menu.add(back_menu);
+
+
         main_menu.add(game_frame);
-
-
-        game_frame.add(new DrawFrame(screen_size));
-
+        game_frame.add(new DrawFrame(window, scores_menu));
 
         back = new JButton("Cofnij się");
         back.addActionListener(this);
         back.setFocusable(false);
-        left_menu.add(back);
+        back_menu.add(back);
 
     }
 

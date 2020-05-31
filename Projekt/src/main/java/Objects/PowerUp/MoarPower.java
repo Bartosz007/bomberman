@@ -25,6 +25,7 @@ public class MoarPower extends GameObject {
         if(obj.getBlock_position().equals(block_position)){
             if(obj.getBomb_power() < 8)//TODO - Ola: 8 to maksymalne pole rażenia bomby, prosze ustaw to jaką stała np MAX_POWER
                 obj.setBomb_power(obj.getBomb_power()+1);
+            obj.setScore(obj.getScore()+75); //TODO Ola - power uP
             return false;
         }
         else {

@@ -1,36 +1,29 @@
 package Game;
 
+import Additions.Loader;
+import Additions.SoundPlayer;
 import Basic.Field;
 import Basic.GameObject;
 import Objects.Bomb.DamageArea;
 import Objects.Hero;
 import Objects.Bomb.Bomb;
-import Objects.PowerUp.MoarBomb;
 import Objects.PowerUp.MoarHand;
-import Objects.PowerUp.MoarPower;
-import Objects.PowerUp.MoarSpeed;
 import Settings.BLOCK_TYPE;
 import Settings.KEY;
 import com.google.gson.Gson;
-
+import Menu.EndMenu;
 import javax.swing.*;
 import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class DrawFrame extends JPanel implements KeyListener {
-    private int width,heigh;
-    private int x = 0;
-    private int y = 0;
-
+    private int width, heigh;
     private Timer timer;
-    private Dimension size;
- //   private Field[][] board;
     private PlayField board;
-
-
     /*
     wzorzec projektowy: Abstract Factory(10 strona), tworzymy listy obiektów abstrakcyjnych typu GameObject,
     do niego dodajemy klasy takie jak Hero, Bomb, MoarBomb, MoarHand, które dziedziczą po GameObject,
@@ -38,27 +31,36 @@ public class DrawFrame extends JPanel implements KeyListener {
 
      */
     private List<Hero> game_heros; //gracze
+    private List<Hero> dead_heros;
     private List<GameObject> powerUps;      //power upy
-
     private List<DamageArea> damageAreas;   //bloki obrażeń
     private List<Bomb> bombList;            //bomby
-    private Bomb actual_bomb;
+
     private Hero player_one;
     private Hero player_two;
 
     private boolean[] player_one_moves;
     private boolean[] player_two_moves;
 
-    private boolean is_player_one_here = true;
-    private boolean is_player_two_here = false;//będzie to w konstruktorze
+    private boolean is_player_one_here;
+    private boolean is_player_two_here;//będzie to w konstruktorze
 
+    private JFrame window;
+    private JPanel scores;
+    private List<JLabel> display_scores;
+    private int timeout;
+    private SoundPlayer game_music;
+    public DrawFrame(JFrame window, JPanel scores) {
+        this.window = window;
+        this.scores = scores;
 
+        Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
+        this.width = screen_size.width;
+        this.heigh = screen_size.height;
 
-    public DrawFrame(Dimension size) {
-        this.size = size;
-        this.width = (int)(5*size.width/6 *(0.80)); // to się zmieni
-        this.heigh = (int)(size.height *(0.80));
-        setPreferredSize(new Dimension(5*size.width/6,size.height));
+        this.width = (int)(5*this.width/6 *(0.80)); // to się zmieni
+        this.heigh = (int)(this.heigh *(0.80));
+        setPreferredSize(new Dimension(5*this.width/6,this.heigh));
 
         setFocusable(true);
         setRequestFocusEnabled(true);
@@ -67,40 +69,47 @@ public class DrawFrame extends JPanel implements KeyListener {
 
         addKeyListener(this);
 
-        Gson g = new Gson();//wczytanie stringa planszy i zrobienie z niego obiektu
-        board  =  new PlayField(g.fromJson(Data.fields_data,Field[][].class));
-        board.reposition();//trzeba jeszcze przypisać dokładne współrzędne a to wyżej nie ładuje konstruktora
+        board = new Loader().getBoard();
+      //  Gson g = new Gson();//wczytanie stringa planszy i zrobienie z niego obiektu
+      //  board  =  new PlayField(g.fromJson(Data.fields_data,Field[][].class));
+      //  board.reposition();//trzeba jeszcze przypisać dokładne współrzędne a to wyżej nie ładuje konstruktora
+       // board = FieldTestMain();
 
         game_heros = new ArrayList<>();//pojemnik na postacie
-
+        dead_heros = new ArrayList<>();
         bombList = new ArrayList<>();//bomby
         powerUps = new ArrayList<>();//pwoer upy
         damageAreas =  new ArrayList<>();//bloki obrażeń
 
         player_one_moves = new boolean[]{false,false,false,false,false};
         player_two_moves = new boolean[]{false,false,false,false,false};
-
+        is_player_one_here = true;
+        is_player_two_here = true;
 
         player_one = new Hero(new Dimension(1,1),"blue_bomberman", "/blue/niebieski.png");
-        player_one.setPlayer(board.getBoard(),bombList,5,3,2,2);
+        player_one.setPlayer(board.getBoard(),bombList,3,2,2,1);
 
 
-       // player_two = new Hero(new Dimension(10,1),"green_bomberman","/blue/niebieski.png");
-       // player_two.setPlayer(board.getBoard(),bombList,4,3,2,1);
+        player_two = new Hero(new Dimension(10,1),"green_bomberman","/blue/niebieski.png");
+        player_two.setPlayer(board.getBoard(),bombList,3,2,2,1);
 
         powerUps.add(new MoarHand(new Dimension(3,1)));
         game_heros.add(player_one);
-       // game_heros.add(player_two);
+        game_heros.add(player_two);
 
-
+        game_music = new SoundPlayer("sounds/game_music.wav");
+        game_music.playContinoulsly();
+        timeout = 0;
+        this.display_scores = make_scoreboard();
         timer = new Timer(15, e -> {
+
             calculate();
+            update_scores();
             repaint();
+
         });
         timer.start();
-
     }
-
 
 
     @Override
@@ -155,23 +164,25 @@ public class DrawFrame extends JPanel implements KeyListener {
             if (keycode == KEY.D) {
                 player_one_moves[3] = true;
             }
-            if (keycode == KEY.SPACE && player_one.getBombs() > 0) {
+            if (keycode == KEY.SPACE) {
                 for (Bomb b : bombList) {
                     if (player_one.getBlock_position().equals(b.getBlock_position())) {  //jeśli w tym bloku jest już bomba to nie można postawić kolejnej
                         if(player_one.isMove_bomb() && !player_one.isBomb_in_hand()){
                             player_one.setPicked_bomb(b);
                             player_one.setBomb_in_hand(true);
                         }
+
                         return;
                     }
 
                 }
-                player_one.setBombs(player_one.getBombs() - 1);
-                //    player_one_moves[4] = true;
-                Bomb bomb = new Bomb(player_one.getBlock_position(), player_one.getBomb_power(), "blue", "/blue/dynamit.png", player_one);
-                //    game_objects.add(bomb);
-                bombList.add(bomb);
-
+                if(player_one.getBombs() > 0) {
+                    player_one.setBombs(player_one.getBombs() - 1);
+                    //    player_one_moves[4] = true;
+                    Bomb bomb = new Bomb(player_one.getBlock_position(), player_one.getBomb_power(), "blue", "/blue/dynamit.png", player_one);
+                    //    game_objects.add(bomb);
+                    bombList.add(bomb);
+                }
             }
         }
 
@@ -188,7 +199,7 @@ public class DrawFrame extends JPanel implements KeyListener {
             if(keycode==KEY.RIGHT){
                 player_two_moves[3] = true;
             }
-            if(keycode==KEY.ENTER && player_two.getBombs() > 0){
+            if(keycode==KEY.ENTER){
                 for(Bomb b: bombList){
                     if(player_two.getBlock_position().equals(b.getBlock_position())) { //jeśli w tym bloku jest już bomba to nie można postawić kolejnej
                         if(player_two.isMove_bomb() && !player_two.isBomb_in_hand()){
@@ -198,12 +209,14 @@ public class DrawFrame extends JPanel implements KeyListener {
                         return;
                     }
                 }
-                player_two.setBombs(player_two.getBombs()-1);
-                System.out.println(player_two.getBombs());
-                Bomb bomb = new Bomb(player_two.getBlock_position(), player_two.getBomb_power(),"blue","/blue/dynamit.png",player_two);
+                if( player_two.getBombs() > 0) {
+                    player_two.setBombs(player_two.getBombs() - 1);
+                    System.out.println(player_two.getBombs());
+                    Bomb bomb = new Bomb(player_two.getBlock_position(), player_two.getBomb_power(), "blue", "/blue/dynamit.png", player_two);
 
-                bombList.add(bomb);
-                System.out.println("bomba podłożona");
+                    bombList.add(bomb);
+                    System.out.println("bomba podłożona");
+                }
             }
         }
 
@@ -251,16 +264,18 @@ public class DrawFrame extends JPanel implements KeyListener {
                 }
             }
         }
-
     }
 
-    protected void calculate(){
+    protected void calculate()  {
         //pole ma strukturę siatki, otoczone jest blokami typu wall- czyli nieziszczalne i nieprzechodząca
+        //liczenie pozycji postaci i kolizji
 
-        //liczenie pozycji postaci i kolizji //TODO - Bartosz - przerobić nieco ten system dwóch graczy - ujednolicić
+        if(timeout>6000) //TODO -maksymalny czas gry(Olu - proszę dodać do settings)- można gdzieś go wyświetlać - 1000 to ok 15s
+            end_game();
+        timeout++;
 
-        if(game_heros.size()==0){
-            System.out.println("KONIEC GRYYYYY");
+        if(game_heros.size()==1){
+            end_game();
         }
 
         if(is_player_one_here) {
@@ -274,14 +289,18 @@ public class DrawFrame extends JPanel implements KeyListener {
         //obliczanie wybuchu bomb
         Bomb bomb;
         DamageArea dm;
+        SoundPlayer bomb_sound;
         int a = 0;
         for(int i = 0;i<bombList.size()-a;i++){ // uniwersalna funkcja sprawdzająca wybuchy bomb - dla wszystkich postaci
             bomb = bombList.get(i);
             if(!bomb.checkState()){
+                bomb_sound = new SoundPlayer("sounds/bomb_sound.wav");
+                bomb_sound.playOnce();
+
                 bombList.remove(bomb);
                 bomb.getOwner().setBombs(bomb.getOwner().getBombs()+1);
 
-                dm = new DamageArea(bomb.getBlock_position(),bomb.getPower(),bomb.getColor(),bomb.getOwner().getName(),board,powerUps);
+                dm = new DamageArea(bomb.getBlock_position(),bomb.getPower(),bomb.getColor(),bomb.getOwner(),board,powerUps);
                 damageAreas.add(dm);
                 a++;
 
@@ -311,7 +330,10 @@ public class DrawFrame extends JPanel implements KeyListener {
             hero  = game_heros.get(i);
             hero.checkDamage(damageAreas);
             if(!hero.checkState()){
+                hero.setScore(hero.getScore()+(dead_heros.size()*300));
+                dead_heros.add(hero);
                 game_heros.remove(hero);
+                display_scores.remove(display_scores.get(i));
                 a++;
             }
         }
@@ -355,4 +377,52 @@ public class DrawFrame extends JPanel implements KeyListener {
         }
         b.let_fly(true,field.getX(),field.getY());
     }
+
+    private void end_game(){
+
+        for(Hero hero:game_heros){
+            hero.setScore(hero.getScore()+(dead_heros.size()*300));
+        }
+        for(Hero hero:game_heros){ //musimy tą pętle powtórzyć, bo punktacja byłaby przekłamana
+            dead_heros.add(hero);  //dodajemy do listy ostatniego gracza
+        }
+
+
+        removeKeyListener(this);
+        try {
+            TimeUnit.SECONDS.sleep(1);      //TODO - Ola dodaj do stałych - czas uspienia po śmierci(w sekundach) - powinno być 3
+        }catch (InterruptedException ex){
+            System.out.println("Sleen nie udany");;
+        }
+
+
+        setVisible(false);
+        window.getContentPane().removeAll();
+        window.add(new EndMenu(window,dead_heros));
+        window.repaint();
+
+        timer.stop();
+        game_music.stop();
+    }
+
+    private ArrayList<JLabel> make_scoreboard(){
+        ArrayList<JLabel> jlabels = new ArrayList<>();
+        JLabel jlb;
+        for(Hero hero:game_heros) {
+            jlb = new JLabel("");
+            this.scores.add(jlb);
+            jlabels.add(jlb);
+        }
+        return jlabels;
+      //  this.scores.add(new Label(""));
+    }
+
+    private void update_scores(){
+
+        for(int i =0;i<game_heros.size();i++){
+            display_scores.get(i).setText("Gracz "+game_heros.get(i).getName()+" wynik: "+ game_heros.get(i).getScore() );
+        }
+
+    }
+
 }

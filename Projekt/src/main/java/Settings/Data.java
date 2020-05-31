@@ -1,4 +1,4 @@
-package Game;
+package Settings;
 
 public class Data {
     public static String fields_data = "[\n" +

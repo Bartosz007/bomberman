@@ -9,10 +9,9 @@ public class Field {
     private Dimension block_position;
     private String name;
 
-    public Field(int x, int y, int type, String name) {
-        this.type = type;
-        this.name = name;
+    public Field() {
     }
+
     public void positioning(){
         this.block_position = new Dimension(x, y);
         this.x = x*45;

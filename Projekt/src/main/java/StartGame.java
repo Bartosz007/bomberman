@@ -1,9 +1,14 @@
 import Game.GamePanel;
 import Menu.MainMenu;
+import sun.audio.AudioData;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.audio.ContinuousAudioDataStream;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.*;
 
 public class StartGame extends JFrame {
 
@@ -17,10 +22,13 @@ public class StartGame extends JFrame {
       //  System.out.println(screen_size.width+" "+screen_size.height);
 
         //dodanie menu do okna gry
-      //  add(new MainMenu(this));
+        add(new MainMenu(this));
 
-        add(new GamePanel(this,new MainMenu(this),"bt1"));//przycisk cofnij nie będzie działać
+
+      //  add(new GamePanel(this,new MainMenu(this),"bt1"));//przycisk cofnij nie będzie działać
     }
+
+
 
 
 }

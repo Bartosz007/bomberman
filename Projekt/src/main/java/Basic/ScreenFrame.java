@@ -1,5 +1,7 @@
 package Basic;
 
+import Additions.SoundPlayer;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,9 +10,11 @@ public abstract class ScreenFrame extends JPanel { //screen przyk≈Çadowy z domy≈
     protected JFrame window;
     protected JPanel previous_menu;
     protected JPanel main_menu,first_panel,second_panel,thrid_panel;
-    public ScreenFrame(JFrame window,JPanel previous_menu) {
+    protected SoundPlayer menu_music;
+    public ScreenFrame(JFrame window, JPanel previous_menu, SoundPlayer menu_music) {
         this.window = window;
         this.previous_menu =previous_menu;
+        this.menu_music = menu_music;
 
         Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
 

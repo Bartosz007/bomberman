@@ -26,6 +26,7 @@ public class MoarSpeed extends GameObject {
         if(obj.getBlock_position().equals(block_position)){
             if(obj.getSpeed() < 6)//TODO - Ola: 6 to prędkość maksymalna, wrzuć proszę do pliku SETTINGS to jaką stałą np MAX_SPEED
                 obj.setSpeed(obj.getSpeed()+1);
+            obj.setScore(obj.getScore()+50); //TODO Ola - power uP
             return false;
         }
         else {

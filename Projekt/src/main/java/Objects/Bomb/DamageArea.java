@@ -19,19 +19,21 @@ import java.util.Random;
 public class DamageArea implements State {//możliwe że to szablon Builder(str18)
     private int power;
     private long death_time;
-    private Dimension blockPosition;
     private String color;
+    private Dimension blockPosition;
     private PlayField board;
     private Date date ;
-    private Image image;// obrazek jest łądowany tutaj w celu ograniczenia liczby czytania pliku
+    private Image image;
+    private Hero owner;
     private List <DamageBlock> list;
-    List<GameObject> powerUps;
-    public DamageArea(Dimension blockPosition, int power, String color, String owner, PlayField board, List<GameObject> powerUps) {
+    private List<GameObject> powerUps;
+    public DamageArea(Dimension blockPosition, int power, String color, Hero owner, PlayField board, List<GameObject> powerUps) {
         this.blockPosition = blockPosition;
         this.power = power;
         this.color = color;
         this.board = board;
         this.powerUps = powerUps;
+        this.owner = owner;
         //TODO: Ola, to poniżej jest czas trwania bomby(ms), dodaj stałą w pliku SETTTINGS i 1000 na nią zamień
         this.death_time = new Date().getTime() + 1000;
         this.list = new ArrayList<>();
@@ -131,5 +133,9 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
 
     public List<DamageBlock> getList() {
         return list;
+    }
+
+    public Hero getOwner() {
+        return owner;
     }
 }
