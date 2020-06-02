@@ -1,5 +1,6 @@
 package Menu;
 
+import Additions.SoundPlayer;
 import Basic.ScreenFrame;
 
 import javax.swing.*;
@@ -8,8 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Instruction extends ScreenFrame implements ActionListener  {
-        public Instruction(JFrame window, JPanel previous_menu) {
-            super(window, previous_menu);
+        public Instruction(JFrame window, JPanel previous_menu, SoundPlayer menu_music) {
+            super(window, previous_menu, menu_music);
             JPanel label_menu = new JPanel();
             label_menu.setLayout(new BoxLayout(label_menu,BoxLayout.PAGE_AXIS));
             label_menu.setBackground(new Color(80,80,80));

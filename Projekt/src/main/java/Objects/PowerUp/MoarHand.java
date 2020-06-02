@@ -5,7 +5,7 @@ import Objects.Hero;
 
 import java.awt.*;
 
-public class MoarHand extends GameObject {
+public class MoarHand extends GameObject  {
     public MoarHand(Dimension block_position) {
         super(block_position,"moar_kick","/power_ups/reka.png");
     }

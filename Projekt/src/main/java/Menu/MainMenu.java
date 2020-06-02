@@ -1,26 +1,12 @@
 package Menu;
 
-
 import Settings.GAMESETTINGS;
-
 import Additions.SoundPlayer;
-import sun.audio.AudioData;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+
 
 public class MainMenu extends JPanel implements ActionListener { //klasa dziedzicząca po JPanel, implementująca funckje ActionListener(pojęcie intefejsu)
     private JButton start_game, menu, instrukcje, exit;
@@ -124,7 +110,7 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
 
         menu_music = new SoundPlayer("sounds/menu_music.wav");
 
-        menu_music.playContinoulsly();
+        //menu_music.playContinoulsly();
     }
 
     @Override
@@ -144,7 +130,7 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
         }
         else if(source == instrukcje) {
             setVisible(false);
-            window.add(new Instruction(window,this));
+            window.add(new Instruction(window,this, menu_music));
         }
         else if(source == exit) {
             window.dispose();

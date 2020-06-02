@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
 
-public abstract class GameObject  {
+public abstract class GameObject implements State{
     protected int x,y; //pozycja dokładna którą ma postać
     protected int width,heigh; //szerokość obrazka
     protected Dimension block_position; //blok w którym się aktualnie zawiera

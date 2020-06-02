@@ -5,7 +5,7 @@ import Objects.Hero;
 
 import java.awt.*;
 
-public class MoarSpeed extends GameObject {
+public class MoarSpeed extends GameObject  {
 
     public MoarSpeed(Dimension block_position) {
         super(block_position,"moar_speen","/power_ups/buty.png");

@@ -36,16 +36,26 @@ public class SoundPlayer {
     }
 
     public void playOnce(){
-        clip.start();
+        try{
+            clip.start();
+        }catch(Exception e) {
+        }
+
     }
 
     public void playContinoulsly(){
-        clip.start();
-        clip.loop(Clip.LOOP_CONTINUOUSLY);
+        try {
+            clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+        }catch(Exception e) {
+        }
     }
 
     public void stop(){
-        clip.stop();
+        try{
+            clip.stop();
+        }catch(Exception e) {
+        }
     }
 
 
