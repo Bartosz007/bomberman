@@ -1,16 +1,31 @@
 package Menu;
 
+
 import Settings.GAMESETTINGS;
+
+import Additions.SoundPlayer;
+import sun.audio.AudioData;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.audio.ContinuousAudioDataStream;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainMenu extends JPanel implements ActionListener { //klasa dziedzicząca po JPanel, implementująca funckje ActionListener(pojęcie intefejsu)
     private JButton start_game, menu, instrukcje, exit;
     private JFrame window;
-
+    SoundPlayer menu_music;
 
     public MainMenu(JFrame window) {
         this.window = window;
@@ -101,23 +116,31 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
 
 
         //dodanie przycisków do button_menu
+
         start_panel.add(start_game);
         opcje_panel.add(menu);
         instrukcje_panel.add(instrukcje);
         wyjscie_panel.add(exit);
+
+        menu_music = new SoundPlayer("sounds/menu_music.wav");
+
+        menu_music.playContinoulsly();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) { //obsługa zdarzeń przycisku z pomocą interwejsu o nazwie actionPerformed
+        SoundPlayer menuButton = new SoundPlayer("sounds/click_sound.wav");
+        menuButton.playOnce();
+
         Object source = e.getSource();  //uzyskanie klikniętego przycisku
 
         if(source == start_game) { //sprawdzanie, który przycisk się kliknęło
             setVisible(false);
-            window.add(new GameTypeMenu(window,this));
+            window.add(new GameTypeMenu(window,this, menu_music));
         }
         else if(source == menu) {
             setVisible(false);
-            window.add(new OptionMenu(window,this));
+            window.add(new OptionMenu(window,this, menu_music));
         }
         else if(source == instrukcje) {
             setVisible(false);
@@ -128,5 +151,7 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
         }
 
     }
+
+
 
 }

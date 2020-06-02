@@ -1,5 +1,6 @@
 package Menu;
 
+import Additions.SoundPlayer;
 import Basic.ScreenFrame;
 import Game.GamePanel;
 import javax.swing.*;
@@ -9,9 +10,11 @@ import java.awt.event.ActionListener;
 
 public class MapMenu extends ScreenFrame implements ActionListener {
 
-    public MapMenu(JFrame window, JPanel previous_menu) {
-        super(window, previous_menu);
+    public MapMenu(JFrame window, JPanel previous_menu, SoundPlayer menu_music) {
+        super(window, previous_menu, menu_music);
+        setFocusable(true);
         int nr;
+
         JPanel icon_container = new JPanel();
         JScrollPane map_chose_scroll = new JScrollPane(icon_container);
         second_panel.add(map_chose_scroll);
@@ -32,6 +35,7 @@ public class MapMenu extends ScreenFrame implements ActionListener {
                 bt = new JButton("Mapa"+nr);
             bt.addActionListener(this);
             bt.setFont( new Font("Dialog", Font.BOLD, 24));
+            bt.setFocusable(false);
             icon_container.add(bt);
         }
 
@@ -41,6 +45,9 @@ public class MapMenu extends ScreenFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        SoundPlayer menuButton = new SoundPlayer("sounds/click_sound.wav");
+        menuButton.playOnce();
+
         Object source = e.getSource();
 
         if(source == back){
@@ -50,6 +57,7 @@ public class MapMenu extends ScreenFrame implements ActionListener {
             String name = ((JButton)source).getText();
             setVisible(false);
             window.add(new GamePanel(window,this,name));
+            menu_music.stop();
         }
 
     }

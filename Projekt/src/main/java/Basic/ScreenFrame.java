@@ -1,6 +1,9 @@
 package Basic;
 
+
 import Settings.GAMESETTINGS;
+import Additions.SoundPlayer;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,10 +12,14 @@ public abstract class ScreenFrame extends JPanel { //screen przyk≈Çadowy z domy≈
     protected JButton back;
     protected JFrame window;
     protected JPanel previous_menu;
-    protected JPanel main_menu,first_panel,second_panel,thrid_panel, middle_panel;
-    public ScreenFrame(JFrame window,JPanel previous_menu) {
+
+    protected JPanel main_menu,first_panel,second_panel,thrid_panel;
+    protected SoundPlayer menu_music;
+    public ScreenFrame(JFrame window, JPanel previous_menu, SoundPlayer menu_music) {
+
         this.window = window;
         this.previous_menu =previous_menu;
+        this.menu_music = menu_music;
 
         Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
         screen_size.width= GAMESETTINGS.WIDTH;
@@ -40,6 +47,7 @@ public abstract class ScreenFrame extends JPanel { //screen przyk≈Çadowy z domy≈
         thrid_panel = new JPanel();
         thrid_panel.setPreferredSize(new Dimension(screen_size.width,screen_size.height/4));
         thrid_panel.setMaximumSize(new Dimension(screen_size.width,screen_size.height/4));
+        second_panel.setLayout(new BoxLayout(second_panel,BoxLayout.LINE_AXIS));
         thrid_panel.setBackground(new Color(120,120,120));
         main_menu.add(thrid_panel);
 
