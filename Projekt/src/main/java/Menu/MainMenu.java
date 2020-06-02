@@ -1,5 +1,8 @@
 package Menu;
 
+
+import Settings.GAMESETTINGS;
+
 import Additions.SoundPlayer;
 import sun.audio.AudioData;
 import sun.audio.AudioPlayer;
@@ -9,6 +12,7 @@ import sun.audio.ContinuousAudioDataStream;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,7 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class MainMenu extends JPanel implements ActionListener { //klasa dziedzicząca po JPanel, implementująca funckje ActionListener(pojęcie intefejsu)
-    private JButton start_game, menu, button3, button4, exit;
+    private JButton start_game, menu, instrukcje, exit;
     private JFrame window;
     SoundPlayer menu_music;
 
@@ -27,7 +31,8 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
         this.window = window;
         //rozmiar okna
         Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
-
+        screen_size.width= GAMESETTINGS.WIDTH;
+        screen_size.height=GAMESETTINGS.HEIGHT;
         //okno główne
         JPanel main_menu = new JPanel();  //utworzenie klasy
         main_menu.setBackground(Color.black); //nadanie koloru framowi
@@ -57,35 +62,69 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
 
         //panel przycisków(dodany w celu lepszego pozycjonownia wyglądu)
         JPanel button_menu = new JPanel();
+        button_menu.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/10));
         button_menu.setLayout(new BoxLayout(button_menu,BoxLayout.PAGE_AXIS));
+        button_menu.setBackground(new Color(80,80,80));
         center_panel.add(button_menu); //dodanie klasy JPanel do obiektu nadrzędnego - środkowy panel
 
-        //utworzenie przycisków
-        start_game = new JButton("Start");
-        menu = new JButton("Menu");
-        button3 = new JButton("button3");
-        button4 = new JButton("button4");
+        JPanel start_panel = new JPanel();
+        start_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
+        start_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
+        start_panel.setBackground(new Color(80,80,80));
+        center_panel.add(start_panel);
+
+        JPanel opcje_panel = new JPanel();
+        opcje_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
+        opcje_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
+        opcje_panel.setBackground(new Color(80,80,80));
+        center_panel.add(opcje_panel);
+
+        JPanel instrukcje_panel = new JPanel();
+        instrukcje_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
+        instrukcje_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
+        instrukcje_panel.setBackground(new Color(80,80,80));
+        center_panel.add(instrukcje_panel);
+
+        JPanel wyjscie_panel = new JPanel();
+        wyjscie_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
+        wyjscie_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
+        wyjscie_panel.setBackground(new Color(80,80,80));
+        center_panel.add(wyjscie_panel);
+
+        /*JPanel opcje_panel = new JPanel();
+        JPanel instrukcje_panel = new JPanel();
+        JPanel wyjscie_panel = new JPanel();*/
+
+        start_game = new JButton("\n Start \n");
+        start_game.setPreferredSize(new Dimension(160, 70));
+        start_game.setFont( new Font("Dialog", Font.BOLD, 24));
+        menu = new JButton("Opcje");
+        menu.setPreferredSize(new Dimension(160, 70));
+        menu.setFont( new Font("Dialog", Font.BOLD, 24));
+        instrukcje = new JButton("Instrukcje");
+        instrukcje.setPreferredSize(new Dimension(160, 70));
+        instrukcje.setFont( new Font("Dialog", Font.BOLD, 24));
         exit = new JButton("Exit");
+        exit.setPreferredSize(new Dimension(160, 70));
+        exit.setFont( new Font("Dialog", Font.BOLD, 24));
 
         //przypisanie listenerów(zdarzeń) do przycisków
         start_game.addActionListener(this);//this -tutaj to oznacza interfejs ActionListener
         menu.addActionListener(this);
-        button3.addActionListener(this);
-        button4.addActionListener(this);
+        instrukcje.addActionListener(this);
         exit.addActionListener(this);
 
+
         //dodanie przycisków do button_menu
-        button_menu.add(start_game);
-        button_menu.add(menu);
-        button_menu.add(button3);
-        button_menu.add(button4);
-        button_menu.add(exit);
+
+        start_panel.add(start_game);
+        opcje_panel.add(menu);
+        instrukcje_panel.add(instrukcje);
+        wyjscie_panel.add(exit);
 
         menu_music = new SoundPlayer("sounds/menu_music.wav");
 
         menu_music.playContinoulsly();
-
-
     }
 
     @Override
@@ -103,13 +142,9 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
             setVisible(false);
             window.add(new OptionMenu(window,this, menu_music));
         }
-        else if(source == button3) {
-            System.out.println("button3");
-            //jakieś eventy przycisku 3
-        }
-        else if(source == button4) {
-            System.out.println("button4");
-            //jakieś eventy przycisku 3
+        else if(source == instrukcje) {
+            setVisible(false);
+            window.add(new Instruction(window,this));
         }
         else if(source == exit) {
             window.dispose();

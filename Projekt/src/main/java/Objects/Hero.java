@@ -15,6 +15,9 @@ public class Hero extends GameObject{
     private int bombs;
     private int bomb_power;
     private int vector_x = 0;//kierunek zwrotu postaci - w oparciu o to będą też animacje
+ //zwroty zależne od x i y, operacje na 0,1,-1
+    //poszukaj funkcji/klasy dziedziczącej po obrazkach do cięcia obrazków
+    //utwórz mape plików/tablice, żeby wiedzieć które miejsca odpowiadają za ruch w poszczególnych kierunkach
     private int vector_y = 1;
     private int lives;
     private long cooldown;
@@ -49,10 +52,15 @@ public class Hero extends GameObject{
 
     @Override
     public void draw(Graphics2D g2d) {
+
+        //tutaj rysujemy, można utorzyć zmienną inicjującą czas, w oparciu o którą będzie sie generować animacja
+        //użyj wektor_x i wektor_y, możesz użyć z calculate
+
         //TODO - Ola - animacja tej postaci
         //używaj zmiennej vector do określania zwrotu pozycji
         //dodaj jakąś zmienną(np int), która cały czas będzie się zmieniać(np rosnąć o 1), w oparciu o tą zmienną robisz zmiany stanu animacji
         //gdy jest problem z wczytywaniem obrazków - uruchom IDEE jeszcze raz
+
         g2d.drawImage(this.image, this.x, this.y-6, null);
 
     }

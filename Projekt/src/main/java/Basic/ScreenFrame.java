@@ -1,6 +1,9 @@
 package Basic;
 
+
+import Settings.GAMESETTINGS;
 import Additions.SoundPlayer;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,15 +12,18 @@ public abstract class ScreenFrame extends JPanel { //screen przyk≈Çadowy z domy≈
     protected JButton back;
     protected JFrame window;
     protected JPanel previous_menu;
+
     protected JPanel main_menu,first_panel,second_panel,thrid_panel;
     protected SoundPlayer menu_music;
     public ScreenFrame(JFrame window, JPanel previous_menu, SoundPlayer menu_music) {
+
         this.window = window;
         this.previous_menu =previous_menu;
         this.menu_music = menu_music;
 
         Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
-
+        screen_size.width= GAMESETTINGS.WIDTH;
+        screen_size.height=GAMESETTINGS.HEIGHT;
         main_menu = new JPanel();
         main_menu.setPreferredSize(new Dimension(screen_size.width,screen_size.height));
         main_menu.setMaximumSize(new Dimension(screen_size.width,screen_size.height));
@@ -25,15 +31,15 @@ public abstract class ScreenFrame extends JPanel { //screen przyk≈Çadowy z domy≈
         add(main_menu);
 
         first_panel = new JPanel();
-        first_panel.setPreferredSize(new Dimension(screen_size.width,screen_size.height/4));
-        first_panel.setMaximumSize(new Dimension(screen_size.width,screen_size.height/4));
+        first_panel.setPreferredSize(new Dimension(screen_size.width,screen_size.height/12));
+        first_panel.setMaximumSize(new Dimension(screen_size.width,screen_size.height/12));
         first_panel.setBackground(new Color(120,120,120));
         first_panel.setLayout(new BoxLayout(first_panel,BoxLayout.LINE_AXIS));
         main_menu.add(first_panel);
 
         second_panel = new JPanel();
-        second_panel.setPreferredSize(new Dimension(screen_size.width,screen_size.height/2));
-        second_panel.setMaximumSize(new Dimension(screen_size.width,screen_size.height/2));
+        second_panel.setPreferredSize(new Dimension(screen_size.width,2*screen_size.height/3));
+        second_panel.setMaximumSize(new Dimension(screen_size.width,2*screen_size.height/3));
         second_panel.setBackground(new Color(80,80,80));
         second_panel.setLayout(new BoxLayout(second_panel,BoxLayout.LINE_AXIS));
         main_menu.add(second_panel);
@@ -46,7 +52,8 @@ public abstract class ScreenFrame extends JPanel { //screen przyk≈Çadowy z domy≈
         main_menu.add(thrid_panel);
 
         //przycisk cofania siƒô
-        back = new JButton("Cofnij siƒô");
-        first_panel.add(back);
+        back = new JButton("Cofnij");
+        back.setFont( new Font("Dialog", Font.BOLD, 24));
+        thrid_panel.add(back);
     }
 }

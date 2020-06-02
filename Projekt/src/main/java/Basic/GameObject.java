@@ -6,13 +6,15 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
 
-public abstract class GameObject implements State {
-    protected int x,y;
-    protected int width,heigh;
-    protected Dimension block_position;
-    protected String name;
-    protected String url;
-    protected Image image;
+public abstract class GameObject  {
+    protected int x,y; //pozycja dokładna którą ma postać
+    protected int width,heigh; //szerokość obrazka
+    protected Dimension block_position; //blok w którym się aktualnie zawiera
+    protected String name; //nazwa
+    protected String url; //link do obrazka
+    protected Image image; //wygenerowany obrazek
+
+
 
     public GameObject(Dimension block_position, String name, String url) {
         this.block_position = block_position;
