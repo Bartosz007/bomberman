@@ -33,14 +33,14 @@ public abstract class ScreenFrame extends JPanel { //screen przyk≈Çadowy z domy≈
         first_panel = new JPanel();
         first_panel.setPreferredSize(new Dimension(screen_size.width,screen_size.height/12));
         first_panel.setMaximumSize(new Dimension(screen_size.width,screen_size.height/12));
-        first_panel.setBackground(new Color(120,120,120));
+        first_panel.setBackground(GAMESETTINGS.SZARY_JASNY);
         first_panel.setLayout(new BoxLayout(first_panel,BoxLayout.LINE_AXIS));
         main_menu.add(first_panel);
 
         second_panel = new JPanel();
         second_panel.setPreferredSize(new Dimension(screen_size.width,2*screen_size.height/3));
         second_panel.setMaximumSize(new Dimension(screen_size.width,2*screen_size.height/3));
-        second_panel.setBackground(new Color(80,80,80));
+        second_panel.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         second_panel.setLayout(new BoxLayout(second_panel,BoxLayout.LINE_AXIS));
         main_menu.add(second_panel);
 
@@ -48,7 +48,7 @@ public abstract class ScreenFrame extends JPanel { //screen przyk≈Çadowy z domy≈
         thrid_panel.setPreferredSize(new Dimension(screen_size.width,screen_size.height/4));
         thrid_panel.setMaximumSize(new Dimension(screen_size.width,screen_size.height/4));
         second_panel.setLayout(new BoxLayout(second_panel,BoxLayout.LINE_AXIS));
-        thrid_panel.setBackground(new Color(120,120,120));
+        thrid_panel.setBackground(GAMESETTINGS.SZARY_JASNY);
         main_menu.add(thrid_panel);
 
         //przycisk cofania siƒô
