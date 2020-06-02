@@ -16,11 +16,20 @@ public class MapMenu extends ScreenFrame implements ActionListener {
         JScrollPane map_chose_scroll = new JScrollPane(icon_container);
         second_panel.add(map_chose_scroll);
 
+        Icon icon = new ImageIcon("C:\\Users\\Aleksandra\\Desktop\\mapa1.PNG");
+        JButton button7 = new JButton(icon);
+        //icon_container.add(button7);
       //  List<JButton> map_list = new ArrayList<>();
         JButton bt;
-        for(int i=0;i<30;i++){
+        for(int i=0;i<4;i++)
+        {
             nr = i+1;
-            bt = new JButton("Mapa"+nr);
+            if (0==i)
+            {
+                bt = new JButton(icon);
+            }
+            else
+                bt = new JButton("Mapa"+nr);
             bt.addActionListener(this);
             bt.setFont( new Font("Dialog", Font.BOLD, 24));
             icon_container.add(bt);

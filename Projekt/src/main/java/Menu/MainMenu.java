@@ -47,18 +47,50 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
 
         //panel przycisków(dodany w celu lepszego pozycjonownia wyglądu)
         JPanel button_menu = new JPanel();
-        button_menu.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height));
+        button_menu.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/10));
         button_menu.setLayout(new BoxLayout(button_menu,BoxLayout.PAGE_AXIS));
         button_menu.setBackground(new Color(80,80,80));
         center_panel.add(button_menu); //dodanie klasy JPanel do obiektu nadrzędnego - środkowy panel
 
-        start_game = new JButton("Start");
+        JPanel start_panel = new JPanel();
+        start_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
+        start_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
+        start_panel.setBackground(new Color(80,80,80));
+        center_panel.add(start_panel);
+
+        JPanel opcje_panel = new JPanel();
+        opcje_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
+        opcje_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
+        opcje_panel.setBackground(new Color(80,80,80));
+        center_panel.add(opcje_panel);
+
+        JPanel instrukcje_panel = new JPanel();
+        instrukcje_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
+        instrukcje_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
+        instrukcje_panel.setBackground(new Color(80,80,80));
+        center_panel.add(instrukcje_panel);
+
+        JPanel wyjscie_panel = new JPanel();
+        wyjscie_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
+        wyjscie_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
+        wyjscie_panel.setBackground(new Color(80,80,80));
+        center_panel.add(wyjscie_panel);
+
+        /*JPanel opcje_panel = new JPanel();
+        JPanel instrukcje_panel = new JPanel();
+        JPanel wyjscie_panel = new JPanel();*/
+
+        start_game = new JButton("\n Start \n");
+        start_game.setPreferredSize(new Dimension(160, 70));
         start_game.setFont( new Font("Dialog", Font.BOLD, 24));
         menu = new JButton("Opcje");
+        menu.setPreferredSize(new Dimension(160, 70));
         menu.setFont( new Font("Dialog", Font.BOLD, 24));
         instrukcje = new JButton("Instrukcje");
+        instrukcje.setPreferredSize(new Dimension(160, 70));
         instrukcje.setFont( new Font("Dialog", Font.BOLD, 24));
         exit = new JButton("Exit");
+        exit.setPreferredSize(new Dimension(160, 70));
         exit.setFont( new Font("Dialog", Font.BOLD, 24));
 
         //przypisanie listenerów(zdarzeń) do przycisków
@@ -69,10 +101,10 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
 
 
         //dodanie przycisków do button_menu
-        button_menu.add(start_game);
-        button_menu.add(menu);
-        button_menu.add(instrukcje);
-        button_menu.add(exit);
+        start_panel.add(start_game);
+        opcje_panel.add(menu);
+        instrukcje_panel.add(instrukcje);
+        wyjscie_panel.add(exit);
     }
 
     @Override

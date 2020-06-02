@@ -9,7 +9,7 @@ public abstract class ScreenFrame extends JPanel { //screen przyk≈Çadowy z domy≈
     protected JButton back;
     protected JFrame window;
     protected JPanel previous_menu;
-    protected JPanel main_menu,first_panel,second_panel,thrid_panel;
+    protected JPanel main_menu,first_panel,second_panel,thrid_panel, middle_panel;
     public ScreenFrame(JFrame window,JPanel previous_menu) {
         this.window = window;
         this.previous_menu =previous_menu;
