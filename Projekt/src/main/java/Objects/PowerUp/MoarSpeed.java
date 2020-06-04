@@ -2,6 +2,7 @@ package Objects.PowerUp;
 
 import Basic.GameObject;
 import Objects.Hero;
+import Settings.PLAYER;
 
 import java.awt.*;
 
@@ -24,9 +25,9 @@ public class MoarSpeed extends GameObject  {
     @Override
     public boolean checkState(Hero obj) {
         if(obj.getBlock_position().equals(block_position)){
-            if(obj.getSpeed() < 6)//TODO - Ola: 6 to prędkość maksymalna, wrzuć proszę do pliku SETTINGS to jaką stałą np MAX_SPEED
+            if(obj.getSpeed() < PLAYER.MAX_SPEED)
                 obj.setSpeed(obj.getSpeed()+1);
-            obj.setScore(obj.getScore()+50); //TODO Ola - power uP
+            obj.setScore(obj.getScore()+PLAYER.PU_NISKI);
             return false;
         }
         else {

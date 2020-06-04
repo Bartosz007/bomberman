@@ -3,6 +3,7 @@ package Objects.Bomb;
 import Basic.GameObject;
 import Objects.Hero;
 import Objects.State;
+import Settings.PLAYER;
 
 import java.awt.*;
 import java.util.Date;
@@ -21,8 +22,7 @@ public class Bomb extends GameObject implements State {
         super(block_position, "bomb", url);
         this.owner = owner;
         this.power = power;
-        //TODO: Ola, to poniżej jest czas(ms) po którym wybuchnie bomba, dodaj stałą w pliku SETTTINGS i 2500 na nią zamień
-        this.death_time =new Date().getTime() + 2500;
+        this.death_time =new Date().getTime() + PLAYER.OPOZNIENIE;
         this.color = color;
         this.it_flies = false;
 
@@ -72,7 +72,7 @@ public class Bomb extends GameObject implements State {
     }
 
     public void fly(){
-        int speeed = 3; //// TODO; Ola - proszę dodać speed(prędkość bomb) do stałych
+        int speeed = PLAYER.PREDKOSC;
        // int count = 0;
         if(this.destination_x < this.x){
             this.x = this.x - speeed;
@@ -108,8 +108,7 @@ public class Bomb extends GameObject implements State {
             }
         }
         //liczymy blok względem srodka bloku a nie lewego górnego rogu
-        this.block_position = new Dimension((this.x+22)/45,(this.y+22)/45);
-        //TODO - Ola prosze zamienić w całym projekcie zmienne 45 i 22 na stałe (są to standardowe rozmiary bloku)
+        this.block_position = new Dimension((this.x+PLAYER.ROZMIAR/2)/ PLAYER.ROZMIAR,(this.y+PLAYER.ROZMIAR/2)/ PLAYER.ROZMIAR);
         //Ctrl+Shif+F
     }
 

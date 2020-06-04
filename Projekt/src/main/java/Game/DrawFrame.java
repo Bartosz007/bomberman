@@ -10,7 +10,7 @@ import Objects.Bomb.Bomb;
 import Objects.PowerUp.MoarHand;
 import Settings.BLOCK_TYPE;
 import Settings.KEY;
-import com.google.gson.Gson;
+import Settings.PLAYER;
 import Menu.EndMenu;
 import javax.swing.*;
 import javax.swing.Timer;
@@ -270,7 +270,7 @@ public class DrawFrame extends JPanel implements KeyListener {
         //pole ma strukturę siatki, otoczone jest blokami typu wall- czyli nieziszczalne i nieprzechodząca
         //liczenie pozycji postaci i kolizji
 
-        if(timeout>6000) //TODO -maksymalny czas gry(Olu - proszę dodać do settings)- można gdzieś go wyświetlać - 1000 to ok 15s
+        if(timeout> PLAYER.CZAS_GRY)
             end_game();
         timeout++;
 
@@ -390,7 +390,7 @@ public class DrawFrame extends JPanel implements KeyListener {
 
         removeKeyListener(this);
         try {
-            TimeUnit.SECONDS.sleep(1);      //TODO - Ola dodaj do stałych - czas uspienia po śmierci(w sekundach) - powinno być 3
+            TimeUnit.SECONDS.sleep(PLAYER.USPIENIE);
         }catch (InterruptedException ex){
             System.out.println("Sleen nie udany");;
         }

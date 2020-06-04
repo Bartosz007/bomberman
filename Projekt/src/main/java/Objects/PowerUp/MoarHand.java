@@ -2,6 +2,7 @@ package Objects.PowerUp;
 
 import Basic.GameObject;
 import Objects.Hero;
+import Settings.PLAYER;
 
 import java.awt.*;
 
@@ -24,7 +25,7 @@ public class MoarHand extends GameObject  {
     public boolean checkState(Hero obj) {
         if(obj.getBlock_position().equals(block_position)){
             obj.setMove_bomb(true);
-            obj.setScore(obj.getScore()+100); //TODO Ola - kolejny powerup
+            obj.setScore(obj.getScore()+ PLAYER.PU_WYSOKI);
             return false;
         }
         else {

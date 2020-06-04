@@ -74,17 +74,6 @@ public class EndMenu extends JPanel implements ActionListener {
             score_board.add(napis);
 
         }
-
-
-        /*
-        TODO -to to tylko, żeby było lepiej widać - system punktacji
-        wynik to punkty za podnoszenie power upów (50-100, chyba....)
-        za zabójstwo dostaje się 500pkt
-        za samobója -500pkt
-        za przetrwanie dostaje się n*300, gdzie n to liczba wyeliminowanych graczy
-
-         */
-
         menu_music = new SoundPlayer("sounds/end_music.wav");
         menu_music.playContinoulsly();
 
