@@ -20,7 +20,7 @@ import java.util.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class DrawFrame extends JPanel implements KeyListener {
+public class DrawFrame extends JPanel{
     private int width, heigh;
     private Timer timer;
     private PlayField board;
@@ -50,6 +50,7 @@ public class DrawFrame extends JPanel implements KeyListener {
     private List<JLabel> display_scores;
     private int timeout;
     private SoundPlayer game_music;
+
     public DrawFrame(JFrame window, JPanel scores) {
         this.window = window;
         this.scores = scores;
@@ -62,18 +63,8 @@ public class DrawFrame extends JPanel implements KeyListener {
         this.heigh = (int)(this.heigh *(0.80));
         setPreferredSize(new Dimension(5*this.width/6,this.heigh));
 
-        setFocusable(true);
-        setRequestFocusEnabled(true);
-        requestFocus();
-        requestFocusInWindow();
-
-        addKeyListener(this);
 
         board = new Loader().getBoard();
-      //  Gson g = new Gson();//wczytanie stringa planszy i zrobienie z niego obiektu
-      //  board  =  new PlayField(g.fromJson(Data.fields_data,Field[][].class));
-      //  board.reposition();//trzeba jeszcze przypisać dokładne współrzędne a to wyżej nie ładuje konstruktora
-       // board = FieldTestMain();
 
         game_heros = new ArrayList<>();//pojemnik na postacie
         dead_heros = new ArrayList<>();
@@ -89,16 +80,17 @@ public class DrawFrame extends JPanel implements KeyListener {
         player_one = new Hero(new Dimension(1,1),"blue_bomberman", "/blue/niebieski.png");
         player_one.setPlayer(board.getBoard(),bombList,3,2,2,1);
 
-
         player_two = new Hero(new Dimension(10,1),"green_bomberman","/blue/niebieski.png");
         player_two.setPlayer(board.getBoard(),bombList,3,2,2,1);
 
-        powerUps.add(new MoarHand(new Dimension(3,1)));
         game_heros.add(player_one);
         game_heros.add(player_two);
 
+        addKeyListeners();
+
         game_music = new SoundPlayer("sounds/game_music.wav");
         game_music.playContinoulsly();
+
         timeout = 0;
         this.display_scores = make_scoreboard();
         timer = new Timer(15, e -> {
@@ -109,6 +101,132 @@ public class DrawFrame extends JPanel implements KeyListener {
 
         });
         timer.start();
+    }
+
+    private Action released(int button) {
+        return new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(is_player_one_here) {
+                    if (button == KEY.W) {
+                        player_one_moves[0] = false;
+                    }
+                    if (button == KEY.A) {
+                        player_one_moves[1] = false;
+                    }
+                    if (button == KEY.S) {
+                        player_one_moves[2] = false;
+                    }
+                    if (button == KEY.D) {
+                        player_one_moves[3] = false;
+                    }
+                    if (button == KEY.SPACE) {
+                        if(player_one.isBomb_in_hand()){
+                            throw_bomb(player_one);
+                        }
+                    }
+                }
+
+                if(is_player_two_here){
+                    if(button==KEY.UP){
+                        player_two_moves[0] = false;
+                    }
+                    if(button==KEY.LEFT){
+                        player_two_moves[1] = false;
+                    }
+                    if(button==KEY.DOWN){
+                        player_two_moves[2] = false;
+                    }
+                    if(button==KEY.RIGHT){
+                        player_two_moves[3] = false;
+                    }
+                    if(button==KEY.ENTER){
+                        if(player_two.isBomb_in_hand()){
+                            throw_bomb(player_two);
+                        }
+                    }
+                }
+            }
+        };
+    }
+
+    private Action pressed(int button) {
+
+        return new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              //  System.out.println(button);
+                if(is_player_one_here) {
+                    if (button == KEY.W) {
+                        player_one_moves[0] = true;
+                    }
+                    if (button == KEY.A) {
+                        player_one_moves[1] = true;
+                    }
+                    if (button == KEY.S) {
+                        player_one_moves[2] = true;
+                    }
+                    if (button == KEY.D) {
+                        player_one_moves[3] = true;
+                    }
+                    if (button == KEY.SPACE) {
+                        for (Bomb b : bombList) {
+                            if (player_one.getBlock_position().equals(b.getBlock_position())) {  //jeśli w tym bloku jest już bomba to nie można postawić kolejnej
+                                if(player_one.isMove_bomb() && !player_one.isBomb_in_hand()){
+                                    player_one.setPicked_bomb(b);
+                                    player_one.setBomb_in_hand(true);
+                                }
+
+                                return;
+                            }
+
+                        }
+                        if(player_one.getBombs() > 0) {
+                            player_one.setBombs(player_one.getBombs() - 1);
+                            //    player_one_moves[4] = true;
+                            Bomb bomb = new Bomb(player_one.getBlock_position(), player_one.getBomb_power(), "blue", "/blue/dynamit.png", player_one);
+                            //    game_objects.add(bomb);
+                            bombList.add(bomb);
+                        }
+                    }
+                }
+
+                if(is_player_two_here){
+                    if(button==KEY.UP){
+                        player_two_moves[0] = true;
+                    }
+                    if(button==KEY.LEFT){
+                        player_two_moves[1] = true;
+                    }
+                    if(button==KEY.DOWN){
+                        player_two_moves[2] = true;
+                    }
+                    if(button==KEY.RIGHT){
+                        player_two_moves[3] = true;
+                    }
+                    if(button==KEY.ENTER){
+                        for(Bomb b: bombList){
+                            if(player_two.getBlock_position().equals(b.getBlock_position())) { //jeśli w tym bloku jest już bomba to nie można postawić kolejnej
+                                if(player_two.isMove_bomb() && !player_two.isBomb_in_hand()){
+                                    player_two.setPicked_bomb(b);
+                                    player_two.setBomb_in_hand(true);
+                                }
+                                return;
+                            }
+                        }
+                        if( player_two.getBombs() > 0) {
+                            player_two.setBombs(player_two.getBombs() - 1);
+                            System.out.println(player_two.getBombs());
+                            Bomb bomb = new Bomb(player_two.getBlock_position(), player_two.getBomb_power(), "blue", "/blue/dynamit.png", player_two);
+
+                            bombList.add(bomb);
+                            System.out.println("bomba podłożona");
+                        }
+                    }
+                }
+            }
+        };
+
     }
 
 
@@ -142,128 +260,6 @@ public class DrawFrame extends JPanel implements KeyListener {
         }
 
         g2d.dispose();
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {}
-
-    @Override
-    public void keyPressed(KeyEvent e) { //miałem wersję zrobioną na pętlach, mapach i listach, ale wydajnościowo stało to słabo
-        int keycode = e.getKeyCode();
-        //0-up,1-left,2-down,3-right, 4-bomb
-        if(is_player_one_here) {
-            if (keycode == KEY.W) {
-                player_one_moves[0] = true;
-            }
-            if (keycode == KEY.A) {
-                player_one_moves[1] = true;
-            }
-            if (keycode == KEY.S) {
-                player_one_moves[2] = true;
-            }
-            if (keycode == KEY.D) {
-                player_one_moves[3] = true;
-            }
-            if (keycode == KEY.SPACE) {
-                for (Bomb b : bombList) {
-                    if (player_one.getBlock_position().equals(b.getBlock_position())) {  //jeśli w tym bloku jest już bomba to nie można postawić kolejnej
-                        if(player_one.isMove_bomb() && !player_one.isBomb_in_hand()){
-                            player_one.setPicked_bomb(b);
-                            player_one.setBomb_in_hand(true);
-                        }
-
-                        return;
-                    }
-
-                }
-                if(player_one.getBombs() > 0) {
-                    player_one.setBombs(player_one.getBombs() - 1);
-                    //    player_one_moves[4] = true;
-                    Bomb bomb = new Bomb(player_one.getBlock_position(), player_one.getBomb_power(), "blue", "/blue/dynamit.png", player_one);
-                    //    game_objects.add(bomb);
-                    bombList.add(bomb);
-                }
-            }
-        }
-
-        if(is_player_two_here){
-            if(keycode==KEY.UP){
-                player_two_moves[0] = true;
-            }
-            if(keycode==KEY.LEFT){
-                player_two_moves[1] = true;
-            }
-            if(keycode==KEY.DOWN){
-                player_two_moves[2] = true;
-            }
-            if(keycode==KEY.RIGHT){
-                player_two_moves[3] = true;
-            }
-            if(keycode==KEY.ENTER){
-                for(Bomb b: bombList){
-                    if(player_two.getBlock_position().equals(b.getBlock_position())) { //jeśli w tym bloku jest już bomba to nie można postawić kolejnej
-                        if(player_two.isMove_bomb() && !player_two.isBomb_in_hand()){
-                            player_two.setPicked_bomb(b);
-                            player_two.setBomb_in_hand(true);
-                        }
-                        return;
-                    }
-                }
-                if( player_two.getBombs() > 0) {
-                    player_two.setBombs(player_two.getBombs() - 1);
-                    System.out.println(player_two.getBombs());
-                    Bomb bomb = new Bomb(player_two.getBlock_position(), player_two.getBomb_power(), "blue", "/blue/dynamit.png", player_two);
-
-                    bombList.add(bomb);
-                    System.out.println("bomba podłożona");
-                }
-            }
-        }
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        int keycode = e.getKeyCode();
-        if(is_player_one_here) {
-            if (keycode == KEY.W) {
-                player_one_moves[0] = false;
-            }
-            if (keycode == KEY.A) {
-                player_one_moves[1] = false;
-            }
-            if (keycode == KEY.S) {
-                player_one_moves[2] = false;
-            }
-            if (keycode == KEY.D) {
-                player_one_moves[3] = false;
-            }
-            if (keycode == KEY.SPACE) {
-                if(player_one.isBomb_in_hand()){
-                    throw_bomb(player_one);
-                }
-            }
-        }
-
-        if(is_player_two_here){
-            if(keycode==KEY.UP){
-                player_two_moves[0] = false;
-            }
-            if(keycode==KEY.LEFT){
-                player_two_moves[1] = false;
-            }
-            if(keycode==KEY.DOWN){
-                player_two_moves[2] = false;
-            }
-            if(keycode==KEY.RIGHT){
-                player_two_moves[3] = false;
-            }
-            if(keycode==KEY.ENTER){
-                if(player_two.isBomb_in_hand()){
-                    throw_bomb(player_two);
-                }
-            }
-        }
     }
 
     protected void calculate()  {
@@ -386,9 +382,8 @@ public class DrawFrame extends JPanel implements KeyListener {
         for(Hero hero:game_heros){ //musimy tą pętle powtórzyć, bo punktacja byłaby przekłamana
             dead_heros.add(hero);  //dodajemy do listy ostatniego gracza
         }
-
-
-        removeKeyListener(this);
+        is_player_one_here = false;
+        is_player_two_here = false;
         try {
             TimeUnit.SECONDS.sleep(1);      //TODO - Ola dodaj do stałych - czas uspienia po śmierci(w sekundach) - powinno być 3
         }catch (InterruptedException ex){
@@ -424,5 +419,59 @@ public class DrawFrame extends JPanel implements KeyListener {
         }
 
     }
+
+    void addKeyListeners(){
+        int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
+
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("W"), KEY.W);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("A"), KEY.A);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("S"), KEY.S);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("D"), KEY.D);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("SPACE"), KEY.SPACE);
+
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("released W"),KEY.RW);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("released A"),KEY.RA);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("released S"),KEY.RS);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("released D"),KEY.RD);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("released SPACE"),KEY.RSPACE);
+
+        getActionMap().put(KEY.W, pressed(KEY.W));
+        getActionMap().put(KEY.A, pressed(KEY.A));
+        getActionMap().put(KEY.S, pressed(KEY.S));
+        getActionMap().put(KEY.D, pressed(KEY.D));
+        getActionMap().put(KEY.SPACE, pressed(KEY.SPACE));
+
+        getActionMap().put(KEY.RW, released(KEY.W));
+        getActionMap().put(KEY.RA, released(KEY.A));
+        getActionMap().put(KEY.RS, released(KEY.S));
+        getActionMap().put(KEY.RD, released(KEY.D));
+        getActionMap().put(KEY.RSPACE, released(KEY.SPACE));
+
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("UP"), KEY.UP);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("LEFT"), KEY.LEFT);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("DOWN"), KEY.DOWN);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("RIGHT"), KEY.RIGHT);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("ENTER"), KEY.ENTER);
+
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("released UP"),KEY.RUP);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("released LEFT"),KEY.RLEFT);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("released DOWN"),KEY.RDOWN);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("released RIGHT"),KEY.RRIGHT);
+        getInputMap(IFW).put(KeyStroke.getKeyStroke("released ENTER"),KEY.RENTER);
+
+        getActionMap().put(KEY.UP, pressed(KEY.UP));
+        getActionMap().put(KEY.LEFT, pressed(KEY.LEFT));
+        getActionMap().put(KEY.DOWN, pressed(KEY.DOWN));
+        getActionMap().put(KEY.RIGHT, pressed(KEY.RIGHT));
+        getActionMap().put(KEY.ENTER, pressed(KEY.ENTER));
+
+        getActionMap().put(KEY.RUP, released(KEY.UP));
+        getActionMap().put(KEY.RLEFT, released(KEY.LEFT));
+        getActionMap().put(KEY.RDOWN, released(KEY.DOWN));
+        getActionMap().put(KEY.RRIGHT, released(KEY.RIGHT));
+        getActionMap().put(KEY.RENTER, released(KEY.ENTER));
+
+    }
+
 
 }

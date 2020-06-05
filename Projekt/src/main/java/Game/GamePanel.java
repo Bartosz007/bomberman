@@ -1,7 +1,5 @@
 package Game;
 
-import Additions.SoundPlayer;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -47,8 +45,6 @@ public class GamePanel extends JPanel implements ActionListener {
 
          */
 
-
-
         JPanel scores_menu = new JPanel();
         scores_menu.setPreferredSize(new Dimension(width,7*heigh/8));
         scores_menu.setMaximumSize(new Dimension(width,7*heigh/8));
@@ -63,14 +59,17 @@ public class GamePanel extends JPanel implements ActionListener {
         back_menu.setLayout(new BoxLayout(back_menu,BoxLayout.PAGE_AXIS));
         left_menu.add(back_menu);
 
-
         main_menu.add(game_frame);
+
         game_frame.add(new DrawFrame(window, scores_menu));
+
+
 
         back = new JButton("Cofnij się");
         back.addActionListener(this);
         back.setFocusable(false);
         back_menu.add(back);
+
 
     }
 
@@ -83,5 +82,10 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    Action doNothing = new AbstractAction() {
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("test");
+        }
+    };
 
 }
