@@ -6,6 +6,7 @@ import Objects.Hero;
 import Objects.PowerUp.*;
 import Objects.State;
 import Settings.BLOCK_TYPE;
+import Settings.PLAYER;
 import Settings.PROBABILITY;
 
 import javax.imageio.ImageIO;
@@ -34,8 +35,7 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
         this.board = board;
         this.powerUps = powerUps;
         this.owner = owner;
-        //TODO: Ola, to poniżej jest czas trwania bomby(ms), dodaj stałą w pliku SETTTINGS i 1000 na nią zamień
-        this.death_time = new Date().getTime() + 1000;
+        this.death_time = new Date().getTime() + PLAYER.WYBUCH_WIDOK;
         this.list = new ArrayList<>();
 
       //  System.out.println("/"+color+"/niebieski.png");

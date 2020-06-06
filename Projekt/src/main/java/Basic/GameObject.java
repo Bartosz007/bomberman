@@ -1,6 +1,7 @@
 package Basic;
 
 import Objects.State;
+import Settings.PLAYER;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -15,20 +16,21 @@ public abstract class GameObject implements State{
     protected Image image; //wygenerowany obrazek
 
 
-
     public GameObject(Dimension block_position, String name, String url) {
         this.block_position = block_position;
         this.name = name;
         this.url = url;
 
-        this.x = block_position.width*45;
-        this.y = block_position.height*45;
+
+        this.x = block_position.width* PLAYER.ROZMIAR;
+        this.y = block_position.height* PLAYER.ROZMIAR;
         try {
             this.image = ImageIO.read(getClass().getResource(this.url));
         } catch (IOException e) {
             System.out.println("Nie wczytało pliku "+ this.url);
         }
     }
+
 
 
     public int getX() {
@@ -75,6 +77,13 @@ public abstract class GameObject implements State{
     wzorzec projektowy: Template Method(68 strona)
     jest to to metoda, która jest tylko wzorcem(template), jest nadpisywana przez podklasy takie jak Hero, Bomb, czy z klasy Pakietu PowerUp
      */
+    //    public int getHeight() {
+    //        return height;
+    //    }
+    //
+    //    public int getWidth() {
+    //        return width;
+    //    }
     public abstract void draw(Graphics2D g2d);
 
 

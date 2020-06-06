@@ -2,6 +2,7 @@ package Menu;
 
 import Additions.SoundPlayer;
 import Basic.ScreenFrame;
+import Settings.GAMESETTINGS;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +17,7 @@ public class GameTypeMenu extends ScreenFrame implements ActionListener {
         
         JPanel button_menu = new JPanel();
         button_menu.setLayout(new BoxLayout(button_menu,BoxLayout.PAGE_AXIS));
-        button_menu.setBackground(new Color(80,80,80));
+        button_menu.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         second_panel.add(button_menu);
 
         JLabel wybor = new JLabel("  Wybierz rodzaj gry");

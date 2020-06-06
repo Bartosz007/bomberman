@@ -2,6 +2,7 @@ package Objects.PowerUp;
 
 import Basic.GameObject;
 import Objects.Hero;
+import Settings.PLAYER;
 
 import java.awt.*;
 
@@ -23,9 +24,9 @@ public class MoarPower extends GameObject {
     @Override
     public boolean checkState(Hero obj) {
         if(obj.getBlock_position().equals(block_position)){
-            if(obj.getBomb_power() < 8)//TODO - Ola: 8 to maksymalne pole rażenia bomby, prosze ustaw to jaką stała np MAX_POWER
+            if(obj.getBomb_power() < PLAYER.MAX_POWER)
                 obj.setBomb_power(obj.getBomb_power()+1);
-            obj.setScore(obj.getScore()+75); //TODO Ola - power uP
+            obj.setScore(obj.getScore()+PLAYER.PU_SREDNI);
             return false;
         }
         else {

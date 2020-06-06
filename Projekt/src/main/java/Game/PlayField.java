@@ -2,6 +2,7 @@ package Game;
 
 import Basic.Field;
 import Settings.BLOCK_TYPE;
+import Settings.PLAYER;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -10,7 +11,7 @@ import java.io.IOException;
 public class PlayField {
     private Field[][] board;
     private Image background,barrel,wall;
-    private int field_size = 45;//rozmiar pola w pikselach //TODO Ola - field_size również poprosze do pliku SETTINGS
+    private int field_size = PLAYER.ROZMIAR;//rozmiar pola w pikselach
     public PlayField(Field[][] board) {
         this.board = board;
 

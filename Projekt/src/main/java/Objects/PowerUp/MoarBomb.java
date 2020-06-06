@@ -2,6 +2,7 @@ package Objects.PowerUp;
 
 import Basic.GameObject;
 import Objects.Hero;
+import Settings.PLAYER;
 import Objects.State;
 
 import java.awt.*;
@@ -25,7 +26,7 @@ public class MoarBomb extends GameObject {
     public boolean checkState(Hero obj) {
         if(obj.getBlock_position().equals(block_position)){
             obj.setBombs(obj.getBombs()+1);
-            obj.setScore(obj.getScore()+100); //TODO Ola 100 to punktacja za podniesione power-upy
+            obj.setScore(obj.getScore()+PLAYER.PU_WYSOKI);
             return false;
         }
         else {

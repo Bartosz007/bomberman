@@ -20,35 +20,35 @@ public class OptionMenu extends ScreenFrame implements ActionListener { //dziedz
         JPanel srodek = new JPanel();
         JPanel prawy = new JPanel();
 
-        lewy.setBackground(new Color(80,80,80));
+        lewy.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         lewy.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/3));
         lewy.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/3));
         second_panel.add(lewy);
 
-        srodek.setBackground(new Color(80,80,80));
+        srodek.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         srodek.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT));
         srodek.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT));
         second_panel.add(srodek);
 
-        prawy.setBackground(new Color(80,80,80));
+        prawy.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         prawy.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/3));
         prawy.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/3));
         second_panel.add(prawy);
 
         JPanel przesuniecie = new JPanel();
-        przesuniecie.setBackground(new Color(80,80,80));
+        przesuniecie.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         przesuniecie.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/8));
         przesuniecie.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/8));
         srodek.add(przesuniecie);
 
         JPanel music_menu = new JPanel();
-        music_menu.setBackground(new Color(80,80,80));
+        music_menu.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         music_menu.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/5));
         music_menu.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/5));
         srodek.add(music_menu);
 
         JPanel predkosc_menu = new JPanel();
-        predkosc_menu.setBackground(new Color(80,80,80));
+        predkosc_menu.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         predkosc_menu.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/4));
         predkosc_menu.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/4));
         srodek.add(predkosc_menu);
@@ -57,16 +57,16 @@ public class OptionMenu extends ScreenFrame implements ActionListener { //dziedz
         suwak.setMinorTickSpacing(1);
         suwak.setPaintTicks(true);
         suwak.setSnapToTicks(true);
-        suwak.setBackground(new Color(120,120,120));
+        suwak.setBackground(GAMESETTINGS.SZARY_JASNY);
 
 
         JLabel muzyka_napis = new JLabel("  Opcje muzyki  ");
         muzyka_napis.setFont( new Font("Dialog", Font.BOLD, 24));
-        muzyka_napis.setForeground(new Color(255,255,255));
+        muzyka_napis.setForeground(GAMESETTINGS.BIALY);
 
         JLabel predkosc = new JLabel("  Prędkość początkowa  ");
         predkosc.setFont( new Font("Dialog", Font.BOLD, 24));
-        predkosc.setForeground(new Color(255,255,255));
+        predkosc.setForeground(GAMESETTINGS.BIALY);
 
         opcja1 = new JButton("Music on");
         opcja1.setFont( new Font("Dialog", Font.BOLD, 24));

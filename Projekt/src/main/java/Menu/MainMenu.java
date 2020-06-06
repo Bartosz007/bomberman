@@ -29,52 +29,52 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
         JPanel left_panel = new JPanel();
         left_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height)); //aby rozmiary dobrze pasowały, trzeba używać metod PrefferedSize i MaximumSize
         left_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));   //w parametrach przyjmują klasę Dimension(szerokość,wysokość)
-        left_panel.setBackground(new Color(120,120,120));//nadanie koloru klasą kolor
+        left_panel.setBackground(GAMESETTINGS.SZARY_JASNY);//nadanie koloru klasą kolor
         main_menu.add(left_panel);
 
         //srodkowy panel
         JPanel center_panel = new JPanel();
         center_panel.setPreferredSize(new Dimension(screen_size.width/2,screen_size.height));
         center_panel.setMaximumSize(new Dimension(screen_size.width/2,screen_size.height));
-        center_panel.setBackground(new Color(80,80,80));
+        center_panel.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         main_menu.add(center_panel);
 
         //prawy panel
         JPanel right_panel = new JPanel();
         right_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height));
         right_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
-        right_panel.setBackground(new Color(120,120,120));
+        right_panel.setBackground(GAMESETTINGS.SZARY_JASNY);
         main_menu.add(right_panel);
 
         //panel przycisków(dodany w celu lepszego pozycjonownia wyglądu)
         JPanel button_menu = new JPanel();
         button_menu.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/10));
         button_menu.setLayout(new BoxLayout(button_menu,BoxLayout.PAGE_AXIS));
-        button_menu.setBackground(new Color(80,80,80));
+        button_menu.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         center_panel.add(button_menu); //dodanie klasy JPanel do obiektu nadrzędnego - środkowy panel
 
         JPanel start_panel = new JPanel();
         start_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
         start_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
-        start_panel.setBackground(new Color(80,80,80));
+        start_panel.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         center_panel.add(start_panel);
 
         JPanel opcje_panel = new JPanel();
         opcje_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
         opcje_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
-        opcje_panel.setBackground(new Color(80,80,80));
+        opcje_panel.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         center_panel.add(opcje_panel);
 
         JPanel instrukcje_panel = new JPanel();
         instrukcje_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
         instrukcje_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
-        instrukcje_panel.setBackground(new Color(80,80,80));
+        instrukcje_panel.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         center_panel.add(instrukcje_panel);
 
         JPanel wyjscie_panel = new JPanel();
         wyjscie_panel.setPreferredSize(new Dimension(screen_size.width/4,screen_size.height/6));
         wyjscie_panel.setMaximumSize(new Dimension(screen_size.width/4,screen_size.height));
-        wyjscie_panel.setBackground(new Color(80,80,80));
+        wyjscie_panel.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         center_panel.add(wyjscie_panel);
 
         /*JPanel opcje_panel = new JPanel();

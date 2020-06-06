@@ -6,6 +6,7 @@ import Objects.Bomb.Bomb;
 import Objects.Bomb.DamageArea;
 import Objects.Bomb.DamageBlock;
 import Settings.BLOCK_TYPE;
+import Settings.PLAYER;
 
 import java.awt.*;
 import java.util.List;
@@ -27,30 +28,30 @@ public class Hero extends GameObject{
     private Field[][] board;
     private List<Bomb> bombList;
     private int score = 0;
+    protected final int rowCount;
+    protected int colCount;
+    protected int WIDTH;
+    protected int HEIGHT;
 
     public Hero(Dimension block_position, String name, String url) {
         super(block_position, name, url);
 
-        this.width = 45;
-        this.heigh = 51;
+        this.width = PLAYER.ROZMIAR;
+        this.heigh = PLAYER.WZROST_STD;
         this.cooldown = 0;
 
-        this.x = block_position.width*45;
-        this.y = block_position.height*45;
+        this.x = block_position.width* PLAYER.ROZMIAR;
+        this.y = block_position.height* PLAYER.ROZMIAR;
+
+        this.rowCount=4;
+        this.colCount= 3;
+
     }
 
-    public void setPlayer(Field[][] board, List<Bomb> bombList, int speed, int bombs,int bomb_power, int lives){
-        this.speed = speed;
-        this.bombs = bombs;
-        this.bomb_power = bomb_power;
-        this.lives = lives;
-        this.board = board;
-        this.bombList = bombList;
-        this.move_bomb = false;
-        this.bomb_in_hand = false;
-    }
 
-    @Override
+
+
+    @Override //metody które się implementuje
     public void draw(Graphics2D g2d) {
 
         //tutaj rysujemy, można utorzyć zmienną inicjującą czas, w oparciu o którą będzie sie generować animacja
@@ -78,6 +79,18 @@ public class Hero extends GameObject{
         return false;
     }
 
+    public void setPlayer(Field[][] board, List<Bomb> bombList, int speed, int bombs,int bomb_power, int lives){
+        this.speed = speed;
+        this.bombs = bombs;
+        this.bomb_power = bomb_power;
+        this.lives = lives;
+        this.board = board;
+        this.bombList = bombList;
+        this.move_bomb = false;
+        this.bomb_in_hand = false;
+    }
+
+
     public void calculate(boolean[] codes) {//system poruszania się i kolizjii
 
         if(codes[0]){ //góra
@@ -101,8 +114,8 @@ public class Hero extends GameObject{
             vector_y = 0;
             collisions();
         }
-
-        this.setBlock_position(new Dimension((int)((this.x+this.width/2)/45),(int)(this.y+this.heigh/2)/45));
+//licznik porównujący czas i zwrot
+        this.setBlock_position(new Dimension((int)((this.x+this.width/2)/ PLAYER.ROZMIAR),(int)(this.y+this.heigh/2)/ PLAYER.ROZMIAR));
 
         if(this.bomb_in_hand){
 
@@ -112,6 +125,7 @@ public class Hero extends GameObject{
             this.picked_bomb.setBlock_position(this.block_position);
 
         }
+//tutaj robimy i się odwołujemy
 
     }
 
@@ -234,18 +248,23 @@ public class Hero extends GameObject{
                     System.out.println(this.name);
                     Hero dmown = dm.getOwner();
                     if(this!= dmown)
-                        dmown.setScore(dmown.getScore()+500);
+                        dmown.setScore(dmown.getScore()+PLAYER.ZABOJSTWO);
                     else
-                        dmown.setScore(dmown.getScore()-500);
+                        dmown.setScore(dmown.getScore()-PLAYER.ZABOJSTWO);
 
                     //po trafieniu bombą w gracza, staje się on tymczasowo nieśmiertelny
-                    cooldown = new Date().getTime()+3000;//TODO Ola - prosze do pliku SETTINGS dopisać zmienną od cooldownu(to 3000)
+                    cooldown = new Date().getTime()+PLAYER.COOLDOWN;
                     System.out.println("jeb" + this.name);
                 }
             }
         }
     }
 
+    /*protected Bitmap createSubImageAt(int row, int col)  {
+    // createBitmap(bitmap, x, y, width, height).
+        Bitmap subImage = Bitmap.createBitmap(image, col* width, row* height ,width,height);
+        return subImage;
+    }*/
 
     public int getBombs() {
         return bombs;

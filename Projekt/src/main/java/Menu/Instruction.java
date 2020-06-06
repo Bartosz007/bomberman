@@ -2,6 +2,7 @@ package Menu;
 
 import Additions.SoundPlayer;
 import Basic.ScreenFrame;
+import Settings.GAMESETTINGS;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,20 +14,20 @@ public class Instruction extends ScreenFrame implements ActionListener  {
             super(window, previous_menu, menu_music);
             JPanel label_menu = new JPanel();
             label_menu.setLayout(new BoxLayout(label_menu,BoxLayout.PAGE_AXIS));
-            label_menu.setBackground(new Color(80,80,80));
-            label_menu.setPreferredSize(new Dimension(900,300));
-            label_menu.setMaximumSize(new Dimension(900,300));
+            label_menu.setBackground(GAMESETTINGS.SZARY_CIEMNY);
+            label_menu.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH,300));
+            label_menu.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH,300));
             second_panel.add(label_menu);
             JTextArea tekst_area= new JTextArea(30,1);
             tekst_area.setFont( new Font("Dialog", Font.BOLD, 20));
-            tekst_area.setBackground(new Color(80,80,80));
-            tekst_area.setForeground(new Color(255,255,255));
+            tekst_area.setBackground(GAMESETTINGS.SZARY_CIEMNY);
+            tekst_area.setForeground(GAMESETTINGS.BIALY);
             tekst_area.setText("     Instrukcja gry");
 
             JTextArea tekst_area2= new JTextArea(30,1);
             tekst_area2.setFont( new Font("Dialog", Font.BOLD, 16));
-            tekst_area2.setBackground(new Color(80,80,80));
-            tekst_area2.setForeground(new Color(255,255,255));
+            tekst_area2.setBackground(GAMESETTINGS.SZARY_CIEMNY);
+            tekst_area2.setForeground(GAMESETTINGS.BIALY);
             tekst_area2.setText("\n       Gra bomberman to gra, której celem jest wysadzenie przeciwników, zanim oni zdążą wysadzic ciebie.\n" +
                     "       Podkładaj bomby, wysadzaj skrzynie i zbieraj dodatki.\n\n"+
                     "       Rodzaje dodatków:\n "+
@@ -51,7 +52,7 @@ public class Instruction extends ScreenFrame implements ActionListener  {
             opis_gry.setHorizontalAlignment(JLabel.CENTER);
             opis_gry.setSize(100,100);
             opis_gry.setFont( new Font("Dialog", Font.BOLD, 24));
-            opis_gry.setForeground(new Color(255,255,255));
+            opis_gry.setForeground(GAMESETTINGS.BIALY);
             opis_gry.setPreferredSize(new Dimension(900,200));
             opis_gry.setMaximumSize(new Dimension(900,200));
             //label_menu.add(label1);

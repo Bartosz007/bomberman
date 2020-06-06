@@ -1,6 +1,7 @@
 package Objects.Bomb;
 
 import com.sun.javafx.scene.traversal.Direction;
+import Settings.PLAYER;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -16,8 +17,8 @@ public class DamageBlock {
     private Image image;
     public DamageBlock( Dimension blockPosition, Image image) {
         this.blockPosition = blockPosition;
-        this.x = blockPosition.width * 45;
-        this.y = blockPosition.height * 45;
+        this.x = blockPosition.width * PLAYER.ROZMIAR;
+        this.y = blockPosition.height * PLAYER.ROZMIAR;
         this.image = image;
     }
 
