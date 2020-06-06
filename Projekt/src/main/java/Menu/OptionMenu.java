@@ -49,8 +49,8 @@ public class OptionMenu extends ScreenFrame implements ActionListener { //dziedz
 
         JPanel predkosc_menu = new JPanel();
         predkosc_menu.setBackground(GAMESETTINGS.SZARY_CIEMNY);
-        predkosc_menu.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/4));
-        predkosc_menu.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/4));
+        predkosc_menu.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/3));
+        predkosc_menu.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/3));
         srodek.add(predkosc_menu);
 
         suwak = new JSlider(0,5,0);
@@ -64,7 +64,7 @@ public class OptionMenu extends ScreenFrame implements ActionListener { //dziedz
         muzyka_napis.setFont( new Font("Dialog", Font.BOLD, 24));
         muzyka_napis.setForeground(GAMESETTINGS.BIALY);
 
-        JLabel predkosc = new JLabel("  Prędkość początkowa  ");
+        JLabel predkosc = new JLabel("  prawdopodobieństwo  ");
         predkosc.setFont( new Font("Dialog", Font.BOLD, 24));
         predkosc.setForeground(GAMESETTINGS.BIALY);
 

@@ -122,7 +122,7 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
 
         if(source == start_game) { //sprawdzanie, który przycisk się kliknęło
             setVisible(false);
-            window.add(new GameTypeMenu(window,this, menu_music));
+            window.add(new MapMenu(window,this,menu_music));
         }
         else if(source == menu) {
             setVisible(false);

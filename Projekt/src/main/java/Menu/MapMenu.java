@@ -3,6 +3,8 @@ package Menu;
 import Additions.SoundPlayer;
 import Basic.ScreenFrame;
 import Game.GamePanel;
+import Settings.GAMESETTINGS;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,6 +19,7 @@ public class MapMenu extends ScreenFrame implements ActionListener {
 
         JPanel icon_container = new JPanel();
         JScrollPane map_chose_scroll = new JScrollPane(icon_container);
+        icon_container.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         second_panel.add(map_chose_scroll);
 
         Icon icon = new ImageIcon("C:\\Users\\Aleksandra\\Desktop\\mapa1.PNG");
