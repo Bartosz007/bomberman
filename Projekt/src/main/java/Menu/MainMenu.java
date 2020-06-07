@@ -82,17 +82,17 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
         JPanel wyjscie_panel = new JPanel();*/
 
         start_game = new JButton("\n Start \n");
-        start_game.setPreferredSize(new Dimension(160, 70));
-        start_game.setFont( new Font("Dialog", Font.BOLD, 24));
+        start_game.setPreferredSize(new Dimension(GAMESETTINGS.BUTTONWIDTH, GAMESETTINGS.BUTTONHEIGHT));
+        start_game.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
         menu = new JButton("Opcje");
-        menu.setPreferredSize(new Dimension(160, 70));
-        menu.setFont( new Font("Dialog", Font.BOLD, 24));
+        menu.setPreferredSize(new Dimension(GAMESETTINGS.BUTTONWIDTH, GAMESETTINGS.BUTTONHEIGHT));
+        menu.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
         instrukcje = new JButton("Instrukcje");
-        instrukcje.setPreferredSize(new Dimension(160, 70));
-        instrukcje.setFont( new Font("Dialog", Font.BOLD, 24));
+        instrukcje.setPreferredSize(new Dimension(GAMESETTINGS.BUTTONWIDTH, GAMESETTINGS.BUTTONHEIGHT));
+        instrukcje.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
         exit = new JButton("Exit");
-        exit.setPreferredSize(new Dimension(160, 70));
-        exit.setFont( new Font("Dialog", Font.BOLD, 24));
+        exit.setPreferredSize(new Dimension(GAMESETTINGS.BUTTONWIDTH, GAMESETTINGS.BUTTONHEIGHT));
+        exit.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
 
         //przypisanie listenerów(zdarzeń) do przycisków
         start_game.addActionListener(this);//this -tutaj to oznacza interfejs ActionListener
@@ -108,14 +108,14 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
         instrukcje_panel.add(instrukcje);
         wyjscie_panel.add(exit);
 
-        menu_music = new SoundPlayer("sounds/menu_music.wav");
+        menu_music = new SoundPlayer("src/main/resources/sounds/menu_music.wav");
 
         //menu_music.playContinoulsly();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) { //obsługa zdarzeń przycisku z pomocą interwejsu o nazwie actionPerformed
-        SoundPlayer menuButton = new SoundPlayer("sounds/click_sound.wav");
+        SoundPlayer menuButton = new SoundPlayer("src/main/resources/sounds/click_sound.wav");
         menuButton.playOnce();
 
         Object source = e.getSource();  //uzyskanie klikniętego przycisku

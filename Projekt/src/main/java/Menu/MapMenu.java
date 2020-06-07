@@ -5,10 +5,13 @@ import Basic.ScreenFrame;
 import Game.GamePanel;
 import Settings.GAMESETTINGS;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class MapMenu extends ScreenFrame implements ActionListener {
 
@@ -21,34 +24,35 @@ public class MapMenu extends ScreenFrame implements ActionListener {
         JScrollPane map_chose_scroll = new JScrollPane(icon_container);
         icon_container.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         second_panel.add(map_chose_scroll);
+        /*try {
+            Image icon;
+            icon = ImageIO.read(getClass().getResource("resources/mapy/grafikaM0.PNG"));
+            JButton button7 = new JButton("Button7");
 
-        Icon icon = new ImageIcon("C:\\Users\\Aleksandra\\Desktop\\mapa1.PNG");
-        JButton button7 = new JButton(icon);
-        //icon_container.add(button7);
-      //  List<JButton> map_list = new ArrayList<>();
-        JButton bt;
-        for(int i=0;i<4;i++)
-        {
-            nr = i+1;
-            if (0==i)
-            {
-                bt = new JButton(icon);
             }
-            else
-                bt = new JButton("Mapa"+nr);
+        } catch (IOException e) {
+            System.out.println("Nie wczytało pliku "+ "resources/mapy/grafikaM0.PNG");
+        }
+*/
+        //icon_container.add(button7);
+        //  List<JButton> map_list = new ArrayList<>()
+        JButton bt;
+
+        for (int i = 0; i < 4; i++) {
+            nr = i + 1;
+            bt = new JButton("Mapa" + nr);
             bt.addActionListener(this);
-            bt.setFont( new Font("Dialog", Font.BOLD, 24));
+            bt.setFont(new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
             bt.setFocusable(false);
+            bt.setName("Mapa" + i);
             icon_container.add(bt);
         }
-
-
-        back.addActionListener(this); // obsługa przycisku cofania się
+            back.addActionListener(this); // obsługa przycisku cofania się
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        SoundPlayer menuButton = new SoundPlayer("sounds/click_sound.wav");
+        SoundPlayer menuButton = new SoundPlayer("src/main/resources/sounds/click_sound.wav");
         menuButton.playOnce();
 
         Object source = e.getSource();
@@ -57,7 +61,7 @@ public class MapMenu extends ScreenFrame implements ActionListener {
             setVisible(false);
             previous_menu.setVisible(true);
         }else{
-            String name = ((JButton)source).getText();
+            String name = ((JButton)source).getName();
             setVisible(false);
             window.add(new GamePanel(window,this,name));
             menu_music.stop();

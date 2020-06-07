@@ -67,14 +67,13 @@ public class EndMenu extends JPanel implements ActionListener {
 
         Hero h;
         for(int i =heros.size()-1;i>=0;i--){
-            //score_board.add(new JLabel((heros.size() - i) +". "+ heros.get(i).getName() +" osiągnął wynik:  "+  heros.get(i).getScore()));
             JLabel napis = new JLabel((heros.size() - i) +". "+ heros.get(i).getName() +" osiągnął wynik:  "+  heros.get(i).getScore());
             napis.setFont( new Font("Dialog", Font.BOLD, 24));
             napis.setForeground(GAMESETTINGS.BIALY);
             score_board.add(napis);
 
         }
-        menu_music = new SoundPlayer("sounds/end_music.wav");
+        menu_music = new SoundPlayer("src/main/resources/sounds/end_music.wav");
         menu_music.playContinoulsly();
 
         exit = new JButton("Wyjście");

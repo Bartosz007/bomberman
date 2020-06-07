@@ -9,30 +9,33 @@ import Settings.BLOCK_TYPE;
 import Settings.PLAYER;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.Date;
 public class Hero extends GameObject{
     private int speed;
     private int bombs;
     private int bomb_power;
-    private int vector_x = 0;//kierunek zwrotu postaci - w oparciu o to będą też animacje
- //zwroty zależne od x i y, operacje na 0,1,-1
-    //poszukaj funkcji/klasy dziedziczącej po obrazkach do cięcia obrazków
-    //utwórz mape plików/tablice, żeby wiedzieć które miejsca odpowiadają za ruch w poszczególnych kierunkach
-    private int vector_y = 1;
     private int lives;
-    private long cooldown;
+
+    private int vector_x = 0;
+    private int vector_y = 1;
+
+    private int cooldown; //TODO czas nieśpmiertetlności po wybuchu
     private boolean move_bomb;
     private boolean bomb_in_hand;
     private Bomb picked_bomb;
+
     private Field[][] board;
     private List<Bomb> bombList;
-    private int score = 0;
-    protected final int rowCount;
-    protected int colCount;
-    protected int WIDTH;
-    protected int HEIGHT;
+    private int score;
 
+    private int[] petla_animacji;
+    private int aktualny_moment;
+    private boolean[] nacisniety;
+    private int wiersz, kolumna;
+    private int zmiana_przezroczystosci;
+    private float przezroczystosc;
     public Hero(Dimension block_position, String name, String url) {
         super(block_position, name, url);
 
@@ -43,27 +46,22 @@ public class Hero extends GameObject{
         this.x = block_position.width* PLAYER.ROZMIAR;
         this.y = block_position.height* PLAYER.ROZMIAR;
 
-        this.rowCount=4;
-        this.colCount= 3;
+        this.score = 0;
+        this.wiersz = 0;
+        this.kolumna = 0;
 
+        this.petla_animacji = new int[]{0, 0, 0, 0};
+        this.nacisniety = new boolean[]{false, false, false, false};
+        this.przezroczystosc = 1f;
     }
-
-
-
 
     @Override //metody które się implementuje
     public void draw(Graphics2D g2d) {
+        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, przezroczystosc));
 
-        //tutaj rysujemy, można utorzyć zmienną inicjującą czas, w oparciu o którą będzie sie generować animacja
-        //użyj wektor_x i wektor_y, możesz użyć z calculate
 
-        //TODO - Ola - animacja tej postaci
-        //używaj zmiennej vector do określania zwrotu pozycji
-        //dodaj jakąś zmienną(np int), która cały czas będzie się zmieniać(np rosnąć o 1), w oparciu o tą zmienną robisz zmiany stanu animacji
-        //gdy jest problem z wczytywaniem obrazków - uruchom IDEE jeszcze raz
-
-        g2d.drawImage(this.image, this.x, this.y-6, null);
-
+        g2d.drawImage(wycinanie(wiersz, kolumna), this.x, this.y-6, null);
+        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
     }
 
     @Override
@@ -90,31 +88,119 @@ public class Hero extends GameObject{
         this.bomb_in_hand = false;
     }
 
-
     public void calculate(boolean[] codes) {//system poruszania się i kolizjii
 
         if(codes[0]){ //góra
             vector_x = 0;
             vector_y = -1;
             collisions();
+
+            if(!this.nacisniety[0]){
+                wiersz = 3;
+                aktualny_moment = petla_animacji[0];
+                this.nacisniety[0] = true;
+            }
+
+            if(aktualny_moment +10 == petla_animacji[0]){
+                kolumna = 1;
+            }
+            else if(aktualny_moment +20 == petla_animacji[0]){
+                kolumna = 2;
+                aktualny_moment = petla_animacji[0];
+            }
+
+            petla_animacji[0]++;
         }
+        else{
+            if(this.nacisniety[0]) {
+                this.nacisniety[0] = false;
+                kolumna = 0;
+            }
+        }
+
         if(codes[1]){//lewo
             vector_x = -1;
             vector_y = 0;
             collisions();
+
+            if(!this.nacisniety[1]){
+                wiersz = 1;
+                aktualny_moment = petla_animacji[1];
+                this.nacisniety[1] = true;
+            }
+
+            if(aktualny_moment +10 == petla_animacji[1]){
+                kolumna = 1;
+            }
+            else if(aktualny_moment +20 == petla_animacji[1]){
+                kolumna = 2;
+                aktualny_moment = petla_animacji[1];
+            }
+            petla_animacji[1]++;
         }
+        else{
+            if(this.nacisniety[1]) {
+                this.nacisniety[1] = false;
+                kolumna = 0;
+            }
+        }
+
         if(codes[2]){//dół
             vector_x = 0;
             vector_y = 1;
             collisions();
-             //   this.y += this.speed;
+
+            if(!this.nacisniety[2]){
+                wiersz = 0;
+                aktualny_moment = petla_animacji[2];
+                this.nacisniety[2] = true;
+            }
+
+            if(aktualny_moment +10 == petla_animacji[2]){
+                kolumna = 1;
+            }
+            else if(aktualny_moment +20 == petla_animacji[2]){
+                kolumna = 2;
+                aktualny_moment = petla_animacji[2];
+            }
+
+            petla_animacji[2]++;
         }
+        else{
+            if(this.nacisniety[2]) {
+                this.nacisniety[2] = false;
+                kolumna = 0;
+            }
+        }
+
         if(codes[3]){//prawo
             vector_x = 1;
             vector_y = 0;
             collisions();
+
+            if(!this.nacisniety[3]){
+                wiersz = 2;
+                aktualny_moment = petla_animacji[3];
+                this.nacisniety[3] = true;
+            }
+
+            if(aktualny_moment +10 == petla_animacji[3]){
+                kolumna = 1;
+            }
+            else if(aktualny_moment +20 == petla_animacji[3]){
+                kolumna = 2;
+                aktualny_moment = petla_animacji[3];
+            }
+
+            petla_animacji[3]++;
         }
-//licznik porównujący czas i zwrot
+        else{
+            if(this.nacisniety[3]) {
+                this.nacisniety[3] = false;
+                kolumna = 0;
+            }
+        }
+
         this.setBlock_position(new Dimension((int)((this.x+this.width/2)/ PLAYER.ROZMIAR),(int)(this.y+this.heigh/2)/ PLAYER.ROZMIAR));
 
         if(this.bomb_in_hand){
@@ -125,8 +211,21 @@ public class Hero extends GameObject{
             this.picked_bomb.setBlock_position(this.block_position);
 
         }
-//tutaj robimy i się odwołujemy
 
+
+        if(cooldown>0){
+            if(this.cooldown==this.zmiana_przezroczystosci){
+                if(this.przezroczystosc == 1f)
+                    this.przezroczystosc = 0.5f;
+                else
+                    this.przezroczystosc = 1f;
+
+                this.zmiana_przezroczystosci = this.cooldown - 10;
+            }
+            cooldown--;
+        }else{
+            this.przezroczystosc = 1f;
+        }
     }
 
     public void collisions(){
@@ -241,11 +340,11 @@ public class Hero extends GameObject{
     public void checkDamage(List<DamageArea> damageAreas){
         for(DamageArea dm: damageAreas){
             for(DamageBlock db: dm.getList()){
-                if(cooldown < new Date().getTime() &&
+                if(this.cooldown == 0 &&
                         this.block_position.width == db.getBlockPosition().width &&
                         this.block_position.height == db.getBlockPosition().height){
                     this.lives--;
-                    System.out.println(this.name);
+
                     Hero dmown = dm.getOwner();
                     if(this!= dmown)
                         dmown.setScore(dmown.getScore()+PLAYER.ZABOJSTWO);
@@ -253,18 +352,20 @@ public class Hero extends GameObject{
                         dmown.setScore(dmown.getScore()-PLAYER.ZABOJSTWO);
 
                     //po trafieniu bombą w gracza, staje się on tymczasowo nieśmiertelny
-                    cooldown = new Date().getTime()+PLAYER.COOLDOWN;
-                    System.out.println("jeb" + this.name);
+                    this.cooldown = PLAYER.COOLDOWN;
+
+                    this.zmiana_przezroczystosci = this.cooldown - 10;
+
+
                 }
             }
         }
     }
 
-    /*protected Bitmap createSubImageAt(int row, int col)  {
-    // createBitmap(bitmap, x, y, width, height).
-        Bitmap subImage = Bitmap.createBitmap(image, col* width, row* height ,width,height);
-        return subImage;
-    }*/
+    private BufferedImage wycinanie(int wiersz, int kolumna){
+        return this.image.getSubimage(kolumna*this.width,wiersz*this.heigh,this.width,this.heigh);
+    }
+
 
     public int getBombs() {
         return bombs;
