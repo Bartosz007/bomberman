@@ -6,6 +6,7 @@ import Objects.Hero;
 import Objects.PowerUp.*;
 import Objects.State;
 import Settings.BLOCK_TYPE;
+import Settings.GAMESETTINGS;
 import Settings.PLAYER;
 import Settings.PROBABILITY;
 import javafx.scene.transform.Rotate;
@@ -109,14 +110,6 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
     }
 
     private void calculate_area(){
-        //TODO: Ola - Ty to dodasz, jak będziesz poprawiała animację wybuchu
-        //tworzy element pola wybuchu, wykonuje się tylko raz podczas inicjacji obiektu DamageArea
-        //type 0 - środek wybuchu
-        //type 1 - linia wybuchu
-        //type 2 - koniec wybuchu
-        //rotacja - o ile rotować obrazki - pewnie zależne będzie od x i y
-        //ponieżej też będzie funkcja, która tnie obrazek i go rotuje w razie potrzeby
-        //będziesz to zmieniać w funkcji reqursive_check
         int x = (int)this.blockPosition.getWidth();
         int y = (int)this.blockPosition.getHeight();
 
@@ -134,12 +127,12 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
 
         if(wx==1)
             kat = 0;
-        else if(wx==-1)//TODO posegreguj
-            kat = 180;
-        else if(wy==-1)
-            kat = 270;
         else if(wy==1)
-            kat = 90;
+            kat = PLAYER.KAT;
+        else if(wx==-1)
+            kat = PLAYER.KAT*2;
+        else if(wy==-1)
+            kat = PLAYER.KAT*3;
 
 
         double rads = Math.toRadians(kat);

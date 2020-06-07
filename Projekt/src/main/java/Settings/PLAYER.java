@@ -16,6 +16,7 @@ public class PLAYER {
     public static final int PU_SREDNI = 75;
     public static final int PU_NISKI = 50;
     public static final int ZABOJSTWO = 500;
-    public static final int COOLDOWN = 120;
+    public static final int NIESMIERTELNOSC = 120;
+    public static final int KAT = 90;
 
 }

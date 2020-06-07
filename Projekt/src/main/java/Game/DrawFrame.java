@@ -417,7 +417,7 @@ public class DrawFrame extends JPanel{
            for(int i =0;i<game_heros.size();i++){
                display_scores.get(i).setForeground(GAMESETTINGS.BIALY);
                display_scores.get(i).setFont( new Font("Dialog", Font.BOLD, 22));
-               display_scores.get(i).setText(" Gracz "+i+" Wynik:"+ game_heros.get(i).getScore());
+               display_scores.get(i).setText(" Gracz "+(i+1)+" Wynik:"+ game_heros.get(i).getScore());
            }
 
         }

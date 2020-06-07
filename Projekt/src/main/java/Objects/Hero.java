@@ -11,7 +11,7 @@ import Settings.PLAYER;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.List;
-import java.util.Date;
+
 public class Hero extends GameObject{
     private int speed;
     private int bombs;
@@ -21,7 +21,7 @@ public class Hero extends GameObject{
     private int vector_x = 0;
     private int vector_y = 1;
 
-    private int cooldown; //TODO czas nieśpmiertetlności po wybuchu
+    private int cooldown;
     private boolean move_bomb;
     private boolean bomb_in_hand;
     private Bomb picked_bomb;
@@ -352,7 +352,7 @@ public class Hero extends GameObject{
                         dmown.setScore(dmown.getScore()-PLAYER.ZABOJSTWO);
 
                     //po trafieniu bombą w gracza, staje się on tymczasowo nieśmiertelny
-                    this.cooldown = PLAYER.COOLDOWN;
+                    this.cooldown = PLAYER.NIESMIERTELNOSC;
 
                     this.zmiana_przezroczystosci = this.cooldown - 10;
 

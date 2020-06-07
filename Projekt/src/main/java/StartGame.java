@@ -21,13 +21,10 @@ public class StartGame extends JFrame {
         setVisible(true);
         setExtendedState(JFrame.MAXIMIZED_BOTH); //maksymalizacja okna, zmienić rozmiar
         setSize(GAMESETTINGS.WIDTH,GAMESETTINGS.HEIGHT);
-      //  Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
-      //  System.out.println(screen_size.width+" "+screen_size.height);
 
         //dodanie menu do okna gry
         add(new MainMenu(this));
 
-      //  add(new GamePanel(this,new MainMenu(this),"bt1"));//przycisk cofnij nie będzie działać
     }
 
 
