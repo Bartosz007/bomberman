@@ -28,7 +28,7 @@ public class Instruction extends ScreenFrame implements ActionListener  {
             tekst_area2.setFont( new Font("Dialog", Font.BOLD, 16));
             tekst_area2.setBackground(GAMESETTINGS.SZARY_CIEMNY);
             tekst_area2.setForeground(GAMESETTINGS.BIALY);
-            tekst_area2.setText("\n       Gra bomberman to gra, której celem jest wysadzenie przeciwników, zanim oni zdążą wysadzic ciebie.\n" +
+            tekst_area2.setText("\n       Gra bomberman to gra, której celem jest wysadzenie przeciwników, zanim oni zdążą wysadzić ciebie.\n" +
                     "       Podkładaj bomby, wysadzaj skrzynie i zbieraj dodatki.\n\n"+
                     "       Rodzaje dodatków:\n "+
                     "       -błyskawica- zwiększa siłę wybuchu\n" +
@@ -46,18 +46,6 @@ public class Instruction extends ScreenFrame implements ActionListener  {
             tekst_area2.setEditable(false);
             label_menu.add(tekst_area);
             label_menu.add(tekst_area2);
-            JLabel label1 = new JLabel("Instrukcja gry");
-            JLabel opis_gry = new JLabel("  Lorem ipsum dolor sit amet, consect etur adipiscing elit.vrvbrbgtbg bbhbhcdbhic dbidbhcdbhbhdb idubidebubief  ");
-            JLabel opis_gry2 = new JLabel("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
-            opis_gry.setHorizontalAlignment(JLabel.CENTER);
-            opis_gry.setSize(100,100);
-            opis_gry.setFont( new Font("Dialog", Font.BOLD, 24));
-            opis_gry.setForeground(GAMESETTINGS.BIALY);
-            opis_gry.setPreferredSize(new Dimension(900,200));
-            opis_gry.setMaximumSize(new Dimension(900,200));
-            //label_menu.add(label1);
-            //label_menu.add(opis_gry);
-            //second_panel.add(opis_gry2);
             back.addActionListener(this);//to jest obsługa przycisku cofania
         }
 

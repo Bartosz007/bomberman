@@ -6,47 +6,67 @@ import Objects.State;
 import Settings.PLAYER;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.Date;
 
 public class Bomb extends GameObject implements State {
     private Hero owner;
     private int power;
-    private long death_time;//czas życia bomby(po którym wybucha)
+    private long create_time;//czas życia bomby(po którym wybucha)
     private String color;
-    private Date date;
+    private int TTL;
     private int destination_x;
     private int destination_y;
 
     private boolean it_flies;
+
+    private int kolumna;
+    private int zmiana;
     public Bomb(Dimension block_position,int power, String color, String url, Hero owner) {
         super(block_position, "bomb", url);
         this.owner = owner;
         this.power = power;
-        this.death_time =new Date().getTime() + PLAYER.OPOZNIENIE;
         this.color = color;
         this.it_flies = false;
-
+        this.TTL = PLAYER.OPOZNIENIE_WYBUCHU;
+        this.zmiana = this.TTL-20;
     }
 
     @Override
     public void draw(Graphics2D g2d) {
-        //TODO - Ola - animacja bomby
-        //podobnie jak z hero - wytku tutaj nie ma wektora zwrotu
-
-        g2d.drawImage(this.image, this.x, this.y, null);
+        g2d.drawImage(wycinanie(kolumna), this.x, this.y, null);
     }
 
 
     @Override
     public boolean checkState() {
-        date = new Date();
-        return this.death_time >= date.getTime();
+        this.TTL--;
+
+        if(this.TTL == this.zmiana){
+            if(this.kolumna==0){
+                this.kolumna = 1;
+            }
+            else{
+                this.kolumna = 0;
+            }
+            this.zmiana = this.TTL-20;
+        }
+        if(this.zmiana <20 ){
+            this.kolumna = 2;
+        }
+        return this.TTL>0;
     }
 
     @Override
     public boolean checkState(Hero obj) {
         return false;
     }
+
+
+    private BufferedImage wycinanie(int kolumna){
+        return this.image.getSubimage(kolumna*PLAYER.ROZMIAR,0,PLAYER.ROZMIAR,PLAYER.ROZMIAR);
+    }
+
 
     public Hero getOwner() {
         return owner;
@@ -68,7 +88,6 @@ public class Bomb extends GameObject implements State {
         this.it_flies = it_flies;
         this.destination_x = destination_x;
         this.destination_y = destination_y;
-
     }
 
     public void fly(){

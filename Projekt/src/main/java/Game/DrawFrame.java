@@ -9,6 +9,7 @@ import Objects.Hero;
 import Objects.Bomb.Bomb;
 import Objects.PowerUp.MoarHand;
 import Settings.BLOCK_TYPE;
+import Settings.GAMESETTINGS;
 import Settings.KEY;
 import Settings.PLAYER;
 import Menu.EndMenu;
@@ -51,7 +52,7 @@ public class DrawFrame extends JPanel{
     private int timeout;
     private SoundPlayer game_music;
 
-    public DrawFrame(JFrame window, JPanel scores) {
+    public DrawFrame(JFrame window, JPanel scores, String mapa) {
         this.window = window;
         this.scores = scores;
 
@@ -64,7 +65,7 @@ public class DrawFrame extends JPanel{
         setPreferredSize(new Dimension(5*this.width/6,this.heigh));
 
 
-        board = new Loader().getBoard();
+        board = new Loader(mapa).getBoard();
 
         game_heros = new ArrayList<>();//pojemnik na postacie
         dead_heros = new ArrayList<>();
@@ -77,18 +78,18 @@ public class DrawFrame extends JPanel{
         is_player_one_here = true;
         is_player_two_here = true;
 
-        player_one = new Hero(new Dimension(1,1),"blue_bomberman", "/blue/niebieski.png");
-        player_one.setPlayer(board.getBoard(),bombList,3,2,2,1);
+        player_one = new Hero(new Dimension(1,1),"blue_bomberman", "/blue/niebpop.png");
+        player_one.setPlayer(board.getBoard(),bombList,3,2,2,2);
 
-        player_two = new Hero(new Dimension(10,1),"green_bomberman","/blue/niebieski.png");
-        player_two.setPlayer(board.getBoard(),bombList,3,2,2,1);
+        player_two = new Hero(new Dimension(13,1),"green_bomberman","/blue/niebpop.png");
+        player_two.setPlayer(board.getBoard(),bombList,3,2,2,2);
 
         game_heros.add(player_one);
         game_heros.add(player_two);
 
         addKeyListeners();
 
-        game_music = new SoundPlayer("sounds/game_music.wav");
+        game_music = new SoundPlayer("src/main/resources/sounds/game_music.wav");
         game_music.playContinoulsly();
 
         timeout = 0;
@@ -290,7 +291,7 @@ public class DrawFrame extends JPanel{
         for(int i = 0;i<bombList.size()-a;i++){ // uniwersalna funkcja sprawdzająca wybuchy bomb - dla wszystkich postaci
             bomb = bombList.get(i);
             if(!bomb.checkState()){
-                bomb_sound = new SoundPlayer("sounds/bomb_sound.wav");
+                bomb_sound = new SoundPlayer("src/main/resources/sounds/bomb_sound.wav");
                 bomb_sound.playOnce();
 
                 bombList.remove(bomb);
@@ -413,12 +414,13 @@ public class DrawFrame extends JPanel{
     }
 
     private void update_scores(){
+           for(int i =0;i<game_heros.size();i++){
+               display_scores.get(i).setForeground(GAMESETTINGS.BIALY);
+               display_scores.get(i).setFont( new Font("Dialog", Font.BOLD, 22));
+               display_scores.get(i).setText(" Gracz "+(i+1)+" Wynik:"+ game_heros.get(i).getScore());
+           }
 
-        for(int i =0;i<game_heros.size();i++){
-            display_scores.get(i).setText("Gracz "+game_heros.get(i).getName()+" wynik: "+ game_heros.get(i).getScore() );
         }
-
-    }
 
     void addKeyListeners(){
         int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;

@@ -5,6 +5,7 @@ import Settings.PLAYER;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public abstract class GameObject implements State{
@@ -13,7 +14,7 @@ public abstract class GameObject implements State{
     protected Dimension block_position; //blok w którym się aktualnie zawiera
     protected String name; //nazwa
     protected String url; //link do obrazka
-    protected Image image; //wygenerowany obrazek
+    protected BufferedImage image; //wygenerowany obrazek
 
 
     public GameObject(Dimension block_position, String name, String url) {

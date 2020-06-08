@@ -61,18 +61,18 @@ public class OptionMenu extends ScreenFrame implements ActionListener { //dziedz
 
 
         JLabel muzyka_napis = new JLabel("  Opcje muzyki  ");
-        muzyka_napis.setFont( new Font("Dialog", Font.BOLD, 24));
+        muzyka_napis.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
         muzyka_napis.setForeground(GAMESETTINGS.BIALY);
 
         JLabel predkosc = new JLabel("  prawdopodobieństwo  ");
-        predkosc.setFont( new Font("Dialog", Font.BOLD, 24));
+        predkosc.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
         predkosc.setForeground(GAMESETTINGS.BIALY);
 
         opcja1 = new JButton("Music on");
-        opcja1.setFont( new Font("Dialog", Font.BOLD, 24));
+        opcja1.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
 
         opcja2 = new JButton("Music off");
-        opcja2.setFont( new Font("Dialog", Font.BOLD, 24));
+        opcja2.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
         opcja2.setVisible(false);
 
         music_menu.add(muzyka_napis);
@@ -87,7 +87,7 @@ public class OptionMenu extends ScreenFrame implements ActionListener { //dziedz
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        SoundPlayer menuButton = new SoundPlayer("sounds/click_sound.wav");
+        SoundPlayer menuButton = new SoundPlayer("src/main/resources/sounds/click_sound.wav");
         menuButton.playOnce();
 
         Object source = e.getSource();
@@ -108,5 +108,4 @@ public class OptionMenu extends ScreenFrame implements ActionListener { //dziedz
             opcja1.setVisible(true);
         }
     }
-
 }
