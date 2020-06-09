@@ -74,17 +74,7 @@ public abstract class GameObject implements State{
         this.url = url;
     }
 
-    /*
-    wzorzec projektowy: Template Method(68 strona)
-    jest to to metoda, która jest tylko wzorcem(template), jest nadpisywana przez podklasy takie jak Hero, Bomb, czy z klasy Pakietu PowerUp
-     */
-    //    public int getHeight() {
-    //        return height;
-    //    }
-    //
-    //    public int getWidth() {
-    //        return width;
-    //    }
+
     public abstract void draw(Graphics2D g2d);
 
 
