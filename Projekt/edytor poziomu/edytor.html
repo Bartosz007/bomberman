@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <script>
+        window.onload = function () {
+            document.getElementById("plansza").style.height = "35vw"
+            var obj = {
+                "level": []
+            }
+            
+            var wielkosc=7
+            var blok = "wall"
+            var licznik = 0
+            var tab = []
+            var tab10=[]
+            
+            for (var i = 0; i < 15; i++) {
+                tab10[i] =[]
+                var dv1 = document.createElement("div")
+                dv1.className = "blokn"
+                dv1.style.width = (35 / 15) - 0.2 + "vw"
+                dv1.style.height = (35 / 15) - 0.2 + "vw"
+                for (var j = 0; j < 13; j++) {
+                  
+                    var dv2 = document.createElement("div")
+                    dv2.className = "blok"
+                    dv2.id = "bloczek" + licznik
+                    dv2.style.width = (35 /15) - 0.2+"vw"
+                    dv2.style.height = (35 / 15) - 0.2 + "vw"
+                    dv1.appendChild(dv2)
+                    tab.push({ "x": i, "y": j, "id": licznik })
+                    tab10[i].push({ "x": i, "y": j, "type": 2, "name":"empty" })
+                    licznik++
+                }
+                document.getElementById("plansza").appendChild(dv1)
+            }
+
+            document.getElementById("wall").style.border = "2px red solid"
+            $(".bloczki").on("click", function () {
+                $(".bloczki").css("border", "2px black solid")
+                $(this).css("border", "2px red solid")
+                blok = this.id
+            })
+
+            $(".blok").on("click", function () {
+                var lk = parseInt(this.id.substr(7))
+                var pamiec
+                var stan,ktory
+                for (var i = 0; i < 15*13; i++) {
+                    if (lk == tab[i].id)
+                        pamiec = tab[i]
+                }                
+                
+                switch (blok) {
+                    case "wall":
+                        this.style.backgroundColor = "green"
+                        tab10[pamiec.x][pamiec.y].name="wall"
+                        tab10[pamiec.x][pamiec.y].type = 0
+                        break;
+                    case "barrel":
+                        this.style.backgroundColor = "red"
+                        tab10[pamiec.x][pamiec.y].name="barrel"
+                        tab10[pamiec.x][pamiec.y].type = 1
+                        break;
+                    case "empty":
+                        this.style.backgroundColor = "white"
+                        tab10[pamiec.x][pamiec.y].name="empty"
+                        tab10[pamiec.x][pamiec.y].type = 2
+                        break;
+                }
+                
+                for (var i = 0; i < obj.level.length; i++) {
+                    if (obj.level[i].id == lk) {
+                        stan = true
+                           ktory=i
+                    }
+                }
+                
+                if (stan) {
+                    obj.level[ktory].type=blok
+                } else if(blok!="delete") {
+                    obj.level.push({
+                        "id": pamiec.id,
+                        "x": pamiec.x,
+                        "y": pamiec.y,
+                        "type": blok
+                    })
+                }
+                document.getElementById("tekstarea").value = JSON.stringify(tab10, null, 1)
+            })            
+        }
+        
+    </script>
+    <style>
+        #content {           
+            height: 100vh;
+        }
+
+        #plansza {
+            float: left;
+        }
+
+        #menu {
+            width: 18vw;
+            height: 80vh;
+            float: left;
+            text-align: center;
+            border: 2px black solid;
+        }
+
+        #tekst {
+            width: 36vw;
+            height: 50vh;
+            float: left;
+        }
+
+        .bloczki {
+            width: 5vw;
+            margin: 0 auto;
+            border: 2px black solid;
+            margin-top: 3vh;
+            padding: 1vh;
+        }
+
+        #tekstarea {
+            width: 50vh;
+            height: 36vw;
+            overflow: scroll;
+        }
+
+        #wall {
+            background-color: green;
+        }
+
+        #enemy {
+            background-color: red;
+        }
+
+        #treasure {
+            background-color: blue;
+        }
+
+        #light {
+            background-color: yellow;
+        }
+
+        #item1 {
+            background-color: magenta;
+        }
+
+        #item2 {
+            background-color: cyan;
+        }
+
+        #delete {
+            background-color: lightgrey;
+        }
+
+        .blok {
+            border: 1px black solid;
+        }
+
+        .blokn {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="plansza"></div>
+        <div id="menu">
+            <div class="bloczki" id="wall">wall</div>
+            <div class="bloczki" id="barrel">barrel</div>
+            <div class="bloczki" id="empty">empty(podłoga)</div>   
+        </div>
+        <div id="tekst">
+            <textarea id="tekstarea"></textarea>
+        </div>
+    </div>
+</body>
+</html>

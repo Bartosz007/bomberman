@@ -7,7 +7,6 @@ import Basic.GameObject;
 import Objects.Bomb.DamageArea;
 import Objects.Hero;
 import Objects.Bomb.Bomb;
-import Objects.PowerUp.MoarHand;
 import Settings.BLOCK_TYPE;
 import Settings.GAMESETTINGS;
 import Settings.KEY;
@@ -51,10 +50,10 @@ public class DrawFrame extends JPanel{
     private List<JLabel> display_scores;
     private int timeout;
     private SoundPlayer game_music;
-
-    public DrawFrame(JFrame window, JPanel scores, String mapa) {
+    public DrawFrame(JFrame window, JPanel scores, String mapa, SoundPlayer game_music) {
         this.window = window;
         this.scores = scores;
+        this.game_music = game_music;
 
         Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
         this.width = screen_size.width;
@@ -78,19 +77,18 @@ public class DrawFrame extends JPanel{
         is_player_one_here = true;
         is_player_two_here = true;
 
-        player_one = new Hero(new Dimension(1,1),"blue_bomberman", "/blue/niebpop.png");
-        player_one.setPlayer(board.getBoard(),bombList,3,2,2,2);
+        player_one = new Hero(new Dimension(1,1),"Niebieski bomberman", "/blue/paleta.png");
+        player_one.setPlayer(board.getBoard(),bombList,3,1,2,2);
 
-        player_two = new Hero(new Dimension(13,1),"green_bomberman","/blue/niebpop.png");
-        player_two.setPlayer(board.getBoard(),bombList,3,2,2,2);
+        player_two = new Hero(new Dimension(13,1),"Czerwony bomerman","/red/paleta.png");
+        player_two.setPlayer(board.getBoard(),bombList,3,1,2,2);
 
         game_heros.add(player_one);
         game_heros.add(player_two);
 
         addKeyListeners();
 
-        game_music = new SoundPlayer("src/main/resources/sounds/game_music.wav");
-        game_music.playContinoulsly();
+
 
         timeout = 0;
         this.display_scores = make_scoreboard();
@@ -218,10 +216,9 @@ public class DrawFrame extends JPanel{
                         if( player_two.getBombs() > 0) {
                             player_two.setBombs(player_two.getBombs() - 1);
                             System.out.println(player_two.getBombs());
-                            Bomb bomb = new Bomb(player_two.getBlock_position(), player_two.getBomb_power(), "blue", "/blue/dynamit.png", player_two);
+                            Bomb bomb = new Bomb(player_two.getBlock_position(), player_two.getBomb_power(), "red", "/red/dynamit.png", player_two);
 
                             bombList.add(bomb);
-                            System.out.println("bomba podłożona");
                         }
                     }
                 }
@@ -237,12 +234,9 @@ public class DrawFrame extends JPanel{
 
         Graphics2D g2d = (Graphics2D)g.create();
 
-        g2d.setColor(Color.magenta);//rysoanie ramki
-        g2d.drawRect(0,0,width,heigh);
 
-        board.draw_field(g2d);//rysowanie planszy
-     //  g2d.setColor(Color.magenta);
-      //  g2d.fillRect(x,y,30,30);
+        board.draw_field(g2d);
+
 
         for (GameObject obj: powerUps){
             obj.draw(g2d);
@@ -385,10 +379,12 @@ public class DrawFrame extends JPanel{
         }
         is_player_one_here = false;
         is_player_two_here = false;
+        game_music.changeTrack("src/main/resources/sounds/death_sound.wav");
+        game_music.playOnce();
         try {
             TimeUnit.SECONDS.sleep(PLAYER.USPIENIE);
         }catch (InterruptedException ex){
-            System.out.println("Sleen nie udany");;
+            System.out.println("Sleep nie udany");
         }
 
 

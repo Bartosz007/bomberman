@@ -1,5 +1,6 @@
 package Game;
 
+import Additions.SoundPlayer;
 import Settings.GAMESETTINGS;
 
 import javax.swing.*;
@@ -12,11 +13,13 @@ public class GamePanel extends JPanel implements ActionListener {
     private JPanel previous_menu;
     private String mapa;
     private JButton back;
-    public GamePanel(JFrame window, JPanel previous_menu, String mapa)  {
+    private SoundPlayer game_music;
+
+    public GamePanel(JFrame window, JPanel previous_menu, String mapa, SoundPlayer menu_music)  {
         this.window = window;
         this.previous_menu = previous_menu;
         this.mapa = mapa;
-
+        this.game_music = menu_music;
 
         Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
         int width = GAMESETTINGS.WIDTH;
@@ -41,18 +44,12 @@ public class GamePanel extends JPanel implements ActionListener {
         game_frame.setMaximumSize(new Dimension(19*width/25,heigh));
         game_frame.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         game_frame.setLayout(new BoxLayout(game_frame,BoxLayout.PAGE_AXIS));
-        /*
-        wzorzec projektowy: Abstract Facade(str 38)
-        dodajemy do JPanela main_menu nową klasę(DrawFrame), która tworzy planszę gry, obługę klawiatury, rysowanie itp,
-        wszystko to dzieje się po za 'fasadą" i klasa main_manu nie ma pojęcia co dalej się dzieje, natomiast wie, co otrzymała
 
-         */
 
         JPanel hero_menu = new JPanel();
         hero_menu.setPreferredSize(new Dimension(width,heigh/8));
         hero_menu.setMaximumSize(new Dimension(width,heigh/8));
         hero_menu.setBackground(GAMESETTINGS.SZARY_JASNY);
-        //hero_menu.setLayout(new BoxLayout(hero_menu,BoxLayout.PAGE_AXIS));
         left_menu.add(hero_menu);
 
         JPanel scores_menu = new JPanel();
@@ -71,9 +68,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
         main_menu.add(game_frame);
 
-        game_frame.add(new DrawFrame(window, scores_menu,mapa));
-
-
+        game_frame.add(new DrawFrame(window, scores_menu,mapa,menu_music));
 
         back = new JButton("Cofnij się");
         back.setPreferredSize(new Dimension(130, 60));
@@ -89,13 +84,9 @@ public class GamePanel extends JPanel implements ActionListener {
         if(source ==back){
             setVisible(false);
             previous_menu.setVisible(true);
+            game_music.changeTrack("src/main/resources/sounds/menu_music.wav");
+            game_music.playContinoulsly();
         }
     }
-
-    Action doNothing = new AbstractAction() {
-        public void actionPerformed(ActionEvent e) {
-            System.out.println("test");
-        }
-    };
 
 }

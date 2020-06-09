@@ -1,7 +1,6 @@
 package Game;
 
 import Basic.Field;
-import Settings.BLOCK_TYPE;
 import Settings.PLAYER;
 
 import javax.imageio.ImageIO;

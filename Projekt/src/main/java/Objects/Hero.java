@@ -55,7 +55,7 @@ public class Hero extends GameObject{
         this.przezroczystosc = 1f;
     }
 
-    @Override //metody które się implementuje
+    @Override
     public void draw(Graphics2D g2d) {
         g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, przezroczystosc));
 
@@ -231,7 +231,7 @@ public class Hero extends GameObject{
     public void collisions(){
         int x = this.getBlock_position().width;
         int y = this.getBlock_position().height;
-        int im_speed = this.speed/3;//TODO - Bartosz - trzeba poprawić bo postacie przy większej prędkości dostają świra
+        int im_speed = this.speed/3;
 
         Field direct[]=new Field[3];
         if(vector_y == 0){//poruszam się lewo-prawo

@@ -1,7 +1,6 @@
 package Menu;
 
 import Additions.SoundPlayer;
-import Basic.ScreenFrame;
 import Objects.Hero;
 import Settings.GAMESETTINGS;
 
@@ -9,17 +8,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
+
 public class EndMenu extends JPanel implements ActionListener {
     private JButton exit ;
     private JButton back ;
     private JFrame window;
     private SoundPlayer menu_music;
     public EndMenu(JFrame window, List<Hero> heros) {
-
         this.window = window;
-        Dimension screen_size = Toolkit.getDefaultToolkit().getScreenSize();
 
         JPanel main_menu = new JPanel();
         main_menu.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH,GAMESETTINGS.HEIGHT));

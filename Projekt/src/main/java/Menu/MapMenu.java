@@ -10,44 +10,41 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
+
+import static Settings.GAMESETTINGS.BUTTONWIDTH;
 
 public class MapMenu extends ScreenFrame implements ActionListener {
 
     public MapMenu(JFrame window, JPanel previous_menu, SoundPlayer menu_music) {
         super(window, previous_menu, menu_music);
         setFocusable(true);
-        int nr;
-
         JPanel icon_container = new JPanel();
         JScrollPane map_chose_scroll = new JScrollPane(icon_container);
         icon_container.setBackground(GAMESETTINGS.SZARY_CIEMNY);
         second_panel.add(map_chose_scroll);
-        /*try {
-            Image icon;
-            icon = ImageIO.read(getClass().getResource("resources/mapy/grafikaM0.PNG"));
-            JButton button7 = new JButton("Button7");
-
-            }
-        } catch (IOException e) {
-            System.out.println("Nie wczytało pliku "+ "resources/mapy/grafikaM0.PNG");
-        }
-*/
-        //icon_container.add(button7);
-        //  List<JButton> map_list = new ArrayList<>()
         JButton bt;
-
         for (int i = 0; i < 4; i++) {
-            nr = i + 1;
-            bt = new JButton("Mapa" + nr);
-            bt.addActionListener(this);
-            bt.setFont(new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
-            bt.setFocusable(false);
-            bt.setName("Mapa" + i);
-            icon_container.add(bt);
+
+            try {
+                Image icon;
+                icon = ImageIO.read(getClass().getResource("/mapy/GrafikaM"+i+".png"));
+                bt = new JButton();
+                bt.setIcon(new ImageIcon(icon));
+                bt.addActionListener(this);
+                bt.setFont(new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
+                bt.setFocusable(false);
+                bt.setName("Mapa" + i);
+                bt.setMaximumSize(new Dimension(BUTTONWIDTH,BUTTONWIDTH));
+                bt.setPreferredSize(new Dimension(BUTTONWIDTH,BUTTONWIDTH));
+                icon_container.add(bt);
+
+            } catch (IOException e) {
+                System.out.println("Nie wczytało pliku");
+            }
         }
-            back.addActionListener(this); // obsługa przycisku cofania się
+        back.addActionListener(this); // obsługa przycisku cofania się
+
     }
 
     @Override
@@ -63,8 +60,9 @@ public class MapMenu extends ScreenFrame implements ActionListener {
         }else{
             String name = ((JButton)source).getName();
             setVisible(false);
-            window.add(new GamePanel(window,this,name));
-            menu_music.stop();
+            window.add(new GamePanel(window,this,name,menu_music));
+            menu_music.changeTrack("src/main/resources/sounds/game_music.wav");
+            menu_music.playContinoulsly();
         }
 
     }

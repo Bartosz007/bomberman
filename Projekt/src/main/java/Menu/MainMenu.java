@@ -110,7 +110,7 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
 
         menu_music = new SoundPlayer("src/main/resources/sounds/menu_music.wav");
 
-        //menu_music.playContinoulsly();
+        menu_music.playContinoulsly();
     }
 
     @Override

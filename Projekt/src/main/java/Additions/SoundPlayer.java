@@ -2,7 +2,6 @@ package Additions;
 
 import javax.sound.sampled.*;
 import java.io.File;
-import java.io.IOException;
 
 public class SoundPlayer {
     private String path;
@@ -21,7 +20,6 @@ public class SoundPlayer {
         }catch (Exception ex){
             ex.printStackTrace();
         }
-
     }
 
     public void changeTrack(String path){
@@ -38,7 +36,9 @@ public class SoundPlayer {
     public void playOnce(){
         try{
             clip.start();
+
         }catch(Exception e) {
+            System.out.println(e.getMessage());
         }
 
     }
@@ -48,13 +48,22 @@ public class SoundPlayer {
             clip.start();
             clip.loop(Clip.LOOP_CONTINUOUSLY);
         }catch(Exception e) {
+            System.out.println(e.getMessage());
         }
+    }
+
+    public void setLoud(float value){
+        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        float val = 86.0f*value/100.0f;
+        val = val - 80;
+        gainControl.setValue(val);
     }
 
     public void stop(){
         try{
             clip.stop();
         }catch(Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 

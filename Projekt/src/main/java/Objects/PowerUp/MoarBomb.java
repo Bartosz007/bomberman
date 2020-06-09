@@ -3,7 +3,6 @@ package Objects.PowerUp;
 import Basic.GameObject;
 import Objects.Hero;
 import Settings.PLAYER;
-import Objects.State;
 
 import java.awt.*;
 

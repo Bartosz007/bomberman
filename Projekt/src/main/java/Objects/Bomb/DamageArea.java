@@ -6,10 +6,8 @@ import Objects.Hero;
 import Objects.PowerUp.*;
 import Objects.State;
 import Settings.BLOCK_TYPE;
-import Settings.GAMESETTINGS;
 import Settings.PLAYER;
 import Settings.PROBABILITY;
-import javafx.scene.transform.Rotate;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -44,9 +42,9 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
         this.list = new ArrayList<>();
 
         try {
-            this.image = ImageIO.read(getClass().getResource("/"+color+"/niebieskiwybuch.png"));
+            this.image = ImageIO.read(getClass().getResource("/"+color+"/wybuch.png"));
         } catch (IOException e) {
-            System.out.println("Nie wczytało pliku /niebieskiwybuch.png");
+            System.out.println("Nie wczytało pliku iwybuch.png");
         }
 
         calculate_area();
@@ -96,7 +94,7 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
                     if(PROBABILITY.MOAR_SPEED >generator.nextFloat())
                         this.powerUps.add(new MoarSpeed(new Dimension(x,y)));
                     break;
-            } //TODO prawdopobieństwo wypadania lootu
+            }
 
         }
         else if(deep == 0){
@@ -143,9 +141,9 @@ public class DamageArea implements State {//możliwe że to szablon Builder(str1
         int h = (int) Math.floor(PLAYER.ROZMIAR * cos + PLAYER.ROZMIAR * sin);
         BufferedImage rotatedImage = new BufferedImage(w, h, bf.getType());
         AffineTransform at = new AffineTransform();
-        at.translate(w / 2, h / 2);
-        at.rotate(rads,0, 0);
-        at.translate(-bf.getWidth() / 2, -bf.getHeight() / 2);
+        at.translate(w / 2.0f, h / 2.0f);
+        at.rotate(rads,0.0f, 0.0f);
+        at.translate(-bf.getWidth() / 2.0f, -bf.getHeight() / 2.0f);
 
         AffineTransformOp rotateOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
         rotateOp.filter(bf,rotatedImage);

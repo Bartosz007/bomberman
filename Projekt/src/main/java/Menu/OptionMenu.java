@@ -5,11 +5,13 @@ import Basic.ScreenFrame;
 import Settings.GAMESETTINGS;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class OptionMenu extends ScreenFrame implements ActionListener { //dziedziczy po ScreenFrame- klasa zawierająca 3 bloki i przycisk do cofania
+public class OptionMenu extends ScreenFrame implements ActionListener, ChangeListener { //dziedziczy po ScreenFrame- klasa zawierająca 3 bloki i przycisk do cofania
 
     private JButton opcja1, opcja2;
     private JSlider suwak;
@@ -47,41 +49,25 @@ public class OptionMenu extends ScreenFrame implements ActionListener { //dziedz
         music_menu.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/5));
         srodek.add(music_menu);
 
-        JPanel predkosc_menu = new JPanel();
-        predkosc_menu.setBackground(GAMESETTINGS.SZARY_CIEMNY);
-        predkosc_menu.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/3));
-        predkosc_menu.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/3));
-        srodek.add(predkosc_menu);
+        JPanel glosnosc_menu = new JPanel();
+        glosnosc_menu.setBackground(GAMESETTINGS.SZARY_CIEMNY);
+        glosnosc_menu.setPreferredSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/3));
+        glosnosc_menu.setMaximumSize(new Dimension(GAMESETTINGS.WIDTH/3,GAMESETTINGS.HEIGHT/3));
+        srodek.add(glosnosc_menu);
 
-        suwak = new JSlider(0,5,0);
+        suwak = new JSlider(0,100,0);
         suwak.setMinorTickSpacing(1);
+        suwak.setValue(80);
         suwak.setPaintTicks(true);
         suwak.setSnapToTicks(true);
         suwak.setBackground(GAMESETTINGS.SZARY_JASNY);
+        suwak.addChangeListener(this);
 
-
-        JLabel muzyka_napis = new JLabel("  Opcje muzyki  ");
-        muzyka_napis.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
-        muzyka_napis.setForeground(GAMESETTINGS.BIALY);
-
-        JLabel predkosc = new JLabel("  prawdopodobieństwo  ");
-        predkosc.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
-        predkosc.setForeground(GAMESETTINGS.BIALY);
-
-        opcja1 = new JButton("Music on");
-        opcja1.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
-
-        opcja2 = new JButton("Music off");
-        opcja2.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
-        opcja2.setVisible(false);
-
-        music_menu.add(muzyka_napis);
-        music_menu.add(opcja1);
-        opcja1.addActionListener(this);
-        srodek.add(opcja2);
-        predkosc_menu.add(predkosc);
-        opcja2.addActionListener(this);
-        predkosc_menu.add(suwak);
+        JLabel glosnosc = new JLabel("  Głośność muzyki  ");
+        glosnosc.setFont( new Font("Dialog", Font.BOLD, GAMESETTINGS.TEXT_SIZE));
+        glosnosc.setForeground(GAMESETTINGS.BIALY);
+        glosnosc_menu.add(glosnosc);
+        glosnosc_menu.add(suwak);
         back.addActionListener(this);//to jest obsługa przycisku cofania
     }
 
@@ -97,15 +83,22 @@ public class OptionMenu extends ScreenFrame implements ActionListener { //dziedz
         }
         else if(source == opcja1)
         {
-            System.out.println("opcja głosu");
             opcja1.setVisible(false);
             opcja2.setVisible(true);
         }
         else if(source == opcja2)
         {
-            System.out.println("opcja głosu");
             opcja2.setVisible(false);
             opcja1.setVisible(true);
         }
     }
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        if(e.getSource() == suwak){
+            int value = suwak.getValue();
+            menu_music.setLoud((float)value);
+        }
+    }
+
 }

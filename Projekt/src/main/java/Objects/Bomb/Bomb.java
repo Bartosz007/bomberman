@@ -7,7 +7,6 @@ import Settings.PLAYER;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.Date;
 
 public class Bomb extends GameObject implements State {
     private Hero owner;

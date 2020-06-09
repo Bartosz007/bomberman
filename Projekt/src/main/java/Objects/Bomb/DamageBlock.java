@@ -1,16 +1,10 @@
 package Objects.Bomb;
 
-import com.sun.javafx.scene.traversal.Direction;
 import Settings.PLAYER;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.IOException;
 
 public class DamageBlock {
-    //ta klasa mogłaby dziedziczyć po GameObject, ale nie robi tego z kilku powodów
-    //-optymalizacja ładowania obrazków
-    //-opytmalizacja rysowania tych obrazków
     private Dimension blockPosition;
     private int x;
     private int y;
