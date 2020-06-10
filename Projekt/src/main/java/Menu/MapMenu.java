@@ -49,7 +49,7 @@ public class MapMenu extends ScreenFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        SoundPlayer menuButton = new SoundPlayer("src/main/resources/sounds/click_sound.wav");
+        SoundPlayer menuButton = new SoundPlayer(getClass().getResourceAsStream("/sounds/click_sound.wav"));
         menuButton.playOnce();
 
         Object source = e.getSource();
@@ -61,7 +61,7 @@ public class MapMenu extends ScreenFrame implements ActionListener {
             String name = ((JButton)source).getName();
             setVisible(false);
             window.add(new GamePanel(window,this,name,menu_music));
-            menu_music.changeTrack("src/main/resources/sounds/game_music.wav");
+            menu_music.changeTrack(getClass().getResourceAsStream("/sounds/game_music.wav"));
             menu_music.playContinoulsly();
         }
 

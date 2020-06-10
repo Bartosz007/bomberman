@@ -70,7 +70,7 @@ public class EndMenu extends JPanel implements ActionListener {
             score_board.add(napis);
 
         }
-        menu_music = new SoundPlayer("src/main/resources/sounds/end_music.wav");
+        menu_music = new SoundPlayer(getClass().getResourceAsStream("/sounds/end_music.wav"));
         menu_music.playContinoulsly();
 
         exit = new JButton("Wyjście");

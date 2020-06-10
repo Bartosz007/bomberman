@@ -108,14 +108,14 @@ public class MainMenu extends JPanel implements ActionListener { //klasa dziedzi
         instrukcje_panel.add(instrukcje);
         wyjscie_panel.add(exit);
 
-        menu_music = new SoundPlayer("src/main/resources/sounds/menu_music.wav");
+        menu_music = new SoundPlayer(getClass().getResourceAsStream("/sounds/menu_music.wav"));
 
         menu_music.playContinoulsly();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) { //obsługa zdarzeń przycisku z pomocą interwejsu o nazwie actionPerformed
-        SoundPlayer menuButton = new SoundPlayer("src/main/resources/sounds/click_sound.wav");
+        SoundPlayer menuButton = new SoundPlayer(getClass().getResourceAsStream("/sounds/click_sound.wav"));
         menuButton.playOnce();
 
         Object source = e.getSource();  //uzyskanie klikniętego przycisku

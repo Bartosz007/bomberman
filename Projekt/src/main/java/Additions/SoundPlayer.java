@@ -1,33 +1,34 @@
 package Additions;
 
 import javax.sound.sampled.*;
-import java.io.File;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 
 public class SoundPlayer {
-    private String path;
+    private InputStream stream;
     private Clip clip;
-    public SoundPlayer(String path) {
+    public SoundPlayer(InputStream stream) {
 
         try{
-            File musicPath = new File(path);
-            if(musicPath.exists()){
-                clip = AudioSystem.getClip();
-                clip.open(AudioSystem.getAudioInputStream(musicPath));
-            }else{
-                System.out.println("Nie znaleziono takiego pliku");
-            }
-
+            this.stream = stream;
+            InputStream bufferedIn = new BufferedInputStream(stream);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(bufferedIn);
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
         }catch (Exception ex){
             ex.printStackTrace();
         }
     }
 
-    public void changeTrack(String path){
-        File musicPath = new File(path);
+    public void changeTrack(InputStream stream){
         try {
             clip.stop();
+            this.stream = stream;
+            InputStream bufferedIn = new BufferedInputStream(stream);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(bufferedIn);
             clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(musicPath));
+            clip.open(audioInputStream);
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -285,7 +285,7 @@ public class DrawFrame extends JPanel{
         for(int i = 0;i<bombList.size()-a;i++){ // uniwersalna funkcja sprawdzająca wybuchy bomb - dla wszystkich postaci
             bomb = bombList.get(i);
             if(!bomb.checkState()){
-                bomb_sound = new SoundPlayer("src/main/resources/sounds/bomb_sound.wav");
+                bomb_sound = new SoundPlayer(getClass().getResourceAsStream("/sounds/bomb_sound.wav"));
                 bomb_sound.playOnce();
 
                 bombList.remove(bomb);
@@ -379,7 +379,7 @@ public class DrawFrame extends JPanel{
         }
         is_player_one_here = false;
         is_player_two_here = false;
-        game_music.changeTrack("src/main/resources/sounds/death_sound.wav");
+        game_music.changeTrack(getClass().getResourceAsStream("/sounds/death_sound.wav"));
         game_music.playOnce();
         try {
             TimeUnit.SECONDS.sleep(PLAYER.USPIENIE);

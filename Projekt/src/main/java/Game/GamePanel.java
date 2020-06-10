@@ -84,7 +84,7 @@ public class GamePanel extends JPanel implements ActionListener {
         if(source ==back){
             setVisible(false);
             previous_menu.setVisible(true);
-            game_music.changeTrack("src/main/resources/sounds/menu_music.wav");
+            game_music.changeTrack(getClass().getResourceAsStream("/sounds/menu_music.wav"));
             game_music.playContinoulsly();
         }
     }

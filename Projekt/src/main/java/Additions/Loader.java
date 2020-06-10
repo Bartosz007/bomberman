@@ -4,7 +4,6 @@ import Basic.Field;
 import Game.PlayField;
 import com.google.gson.Gson;
 
-import java.io.File;
 import java.util.Scanner;
 
 public class Loader {
@@ -16,10 +15,9 @@ public class Loader {
 
         this.mapa = new String();
 
-        File file = new File("src/main/resources/mapy/"+nazwa_mapa+".txt");
-        try {
+       try {
 
-            Scanner odczyt = new Scanner(file); //wczytujesz plik do zmiennej odczyt
+            Scanner odczyt = new Scanner(getClass().getResourceAsStream("/mapy/"+nazwa_mapa+".txt")); //wczytujesz plik do zmiennej odczyt
 
             while (odczyt.hasNextLine()){
                 mapa = mapa + odczyt.nextLine();

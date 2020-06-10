@@ -73,7 +73,7 @@ public class OptionMenu extends ScreenFrame implements ActionListener, ChangeLis
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        SoundPlayer menuButton = new SoundPlayer("src/main/resources/sounds/click_sound.wav");
+        SoundPlayer menuButton = new SoundPlayer(getClass().getResourceAsStream("/sounds/click_sound.wav"));
         menuButton.playOnce();
 
         Object source = e.getSource();

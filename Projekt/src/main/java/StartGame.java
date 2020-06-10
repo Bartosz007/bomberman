@@ -11,7 +11,7 @@ public class StartGame extends JFrame {
         setVisible(true);
         setExtendedState(JFrame.MAXIMIZED_BOTH); //maksymalizacja okna, zmienić rozmiar
         setSize(GAMESETTINGS.WIDTH,GAMESETTINGS.HEIGHT);
-
+        setTitle("Bomberman");
         add(new MainMenu(this));
     }
 
